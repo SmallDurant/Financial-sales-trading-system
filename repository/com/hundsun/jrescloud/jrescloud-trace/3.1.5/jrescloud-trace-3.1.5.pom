@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.hundsun.jrescloud</groupId>
+    <artifactId>jrescloud</artifactId>
+    <version>3.1.5</version>
+  </parent>
+  <artifactId>jrescloud-trace</artifactId>
+  <packaging>pom</packaging>
+    <modules>
+        <module>jrescloud-trace-api</module>
+        <module>jrescloud-trace-common</module>
+        <module>jrescloud-trace-protobuff</module>
+        <module>jrescloud-trace-core</module>
+        <module>jrescloud-trace-json</module>
+        <module>jrescloud-trace-opentracing</module>
+        <module>jrescloud-trace-starter</module>
+    </modules>
+  <dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>com.hundsun.jrescloud</groupId>
+			<artifactId>jrescloud-dependencies</artifactId>
+			<version>${project.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+  </dependencyManagement>
+</project>

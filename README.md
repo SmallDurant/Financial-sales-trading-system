@@ -3,55 +3,64 @@
 
 
 
-[service-name]-api/ 
+hundsun/
 
-|-- src/
+│
 
-|   |-- main/ 
+├── hundsun-api #所有的接口声明统一下载该文件中
 
-|       |-- java/
+├── hundsun-common # 存放工具类或常量等
 
-|           |-- com.example.[service-name]api/
+​        ├──constant
 
-|               |-- dto/               *# 数据传输对象*
+​        ├──enumeration
 
-|               |-- service/           *# 服务接口定义* 
+​        ├──exception
 
-|-- pom.xml                             *# Maven依赖管理* 
+​        ├──result
 
+├── hundsun-pojo#
 
+​        ├──dto
 
-[service-name]-provider/ 
+​        ├──entity
 
-|-- src/
+​        ├──vo
 
-|   |-- main/
+├── hundsun-user-provider # 用户服务模块相关代码的实现 端口8081
 
-|       |-- java/ 
+├── hundsun-user-consumer # 用户服务controller接口 端口8082
 
-|           |-- com.example.[service-name]provider/
+├── hundsun-authentication-provider # 身份验证服务相关代码的实现 端口8083
 
-|               |-- service/           *# 服务接口实现* 
+├── hundsun-authentication-consumer # 身份验证服务controller接口 端口8084
 
-|               |-- mapper/        *# 数据库操作* 
+├── hundsun-fund-consumer # 基金服务controller接口 端口8085
 
-|               |-- entity/            *# 实体类定义* 
+├── hundsun-fund-provider# 基金服务相关代码实现 端口8086
 
-|-- pom.xml                             *# Maven依赖管理*
+├── hundsun-questionnaire-provider # 问卷服务相关代码实现 端口8087
 
+├── hundsun-questionnaire-consumer # 问卷服务controller接口 端口8088
 
+├── hundsun-transaction-provider # 交易服务相关代码实现 端口8089
 
- [service-name]-consumer/ 
+├── hundsun-transaction-consumer # 交易模块controller接口 端口8090
 
-|-- src/
+├── hundsun-logging-provider # 日志服务相关代码实现 端口8091
 
-|   |-- main/
+├── hundsun-logging-consumer # 日志服务controller接口 端口8092
 
-|       |-- java/
+├── hundsun-clearing-provider # 清算服务相关代码实现 端口8093
 
-|           |-- com.example.[service-name]consumer/
+├── hundsun-clearing-consumer # 清算服务controller接口 端口8094
 
-|               |-- controller/        *# REST API 控制器* 
+├── hundsun-reporting-provider # 查询服务相关代码实现 端口8095
 
-|-- pom.xml                             *# Maven依赖管理*
+├── hundsun-reporting-consumer # 查询服务controller接口 端口8096
 
+├── .gitignore
+
+├── pom.xml #Maven依赖管理
+
+└── README.md
