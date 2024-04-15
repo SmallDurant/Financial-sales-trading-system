@@ -11,21 +11,27 @@ hundsun/
 
 ├── hundsun-common # 存放工具类或常量等
 
-​        ├──constant
+│——├──config# 存放配置类
 
-​        ├──enumeration
+│——├──components# 存放第三方组件
 
-​        ├──exception
+│——├──constant# 存放常量类
 
-​        ├──result
+│——├──enumeration# 存放枚举类
 
-├── hundsun-pojo#
+│——├──exception# 存放异常类，统一继承BaseException
 
-​        ├──dto
+│——└── result# 存放自定义返回类型，后端返回统一格式结果
 
-​        ├──entity
+├──hundsun-pojo
 
-​        ├──vo
+│——├──dto# 数据传输类
+
+│——├──entity# 实体类
+
+│——├──query# 数据查询类
+
+│——└──vo# value object 值对象 
 
 ├── hundsun-user-provider # 用户服务模块相关代码的实现 端口8081
 
