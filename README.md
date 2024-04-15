@@ -1,0 +1,2 @@
+# Financial-sales-trading-system
+基于恒生JRESCloud和HUI框架用于解决金融机构销售基金的基金交易系统
