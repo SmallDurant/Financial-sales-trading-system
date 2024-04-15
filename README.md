@@ -25,17 +25,17 @@
 
 |-- src/
 
-| |-- main/
+|   |-- main/
 
-|  || |-- java/ 
+|       |-- java/ 
 
-|  |||  |-- com.example.[service-name]provider/
+|           |-- com.example.[service-name]provider/
 
-|     |||||          |-- service/           *# 服务接口实现* 
+|               |-- service/           *# 服务接口实现* 
 
-|      |||||         |-- repository/        *# 数据库操作* 
+|               |-- mapper/        *# 数据库操作* 
 
-|         |||||      |-- entity/            *# 实体类定义* 
+|               |-- entity/            *# 实体类定义* 
 
 |-- pom.xml                             *# Maven依赖管理*
 
@@ -54,3 +54,4 @@
 |               |-- controller/        *# REST API 控制器* 
 
 |-- pom.xml                             *# Maven依赖管理*
+
