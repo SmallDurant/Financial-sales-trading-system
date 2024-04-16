@@ -12,8 +12,9 @@ target/
 *.iml
 *.ipr
 
-### TODO
-.idea/*
+### unnecessary files ###
+/.idea/
+/target/
 
 ### Eclipse ###
 .apt_generated
