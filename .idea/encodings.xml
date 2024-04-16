@@ -1,16 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/jres-api/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jres-api/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jres-common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jres-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-authentication-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-authentication-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-authentication-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-authentication-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-clearing-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-clearing-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-clearing-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-clearing-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-demo-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-demo-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-demo-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-demo-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-fund-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-fund-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-fund-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-fund-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-logging-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-logging-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-logging-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-logging-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-pojo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-pojo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-questionnaire-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-questionnaire-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-questionnaire-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-questionnaire-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-reporting-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-reporting-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-reporting-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-reporting-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-transaction-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-transaction-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-transaction-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-transaction-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-user-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-user-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-user-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hundsun-user-provider/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jres-consumer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jres-consumer/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jres-pojo/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jres-pojo/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jres-provider/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jres-provider/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

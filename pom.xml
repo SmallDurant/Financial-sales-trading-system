@@ -4,16 +4,32 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.jres</groupId>
-    <artifactId>Finalcial-sales-trading-system</artifactId>
+    <groupId>com.hundsun</groupId>
+    <artifactId>Financial-sales-trading-system</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>jres-api</module>
-        <module>jres-provider</module>
-        <module>jres-consumer</module>
-        <module>jres-common</module>
-        <module>jres-pojo</module>
+        <module>hundsun-api</module>
+        <module>hundsun-demo-provider</module>
+        <module>hundsun-demo-consumer</module>
+        <module>hundsun-common</module>
+        <module>hundsun-pojo</module>
+        <module>hundsun-user-consumer</module>
+        <module>hundsun-user-provider</module>
+        <module>hundsun-authentication-consumer</module>
+        <module>hundsun-authentication-provider</module>
+        <module>hundsun-fund-consumer</module>
+        <module>hundsun-fund-provider</module>
+        <module>hundsun-questionnaire-consumer</module>
+        <module>hundsun-questionnaire-provider</module>
+        <module>hundsun-transaction-provider</module>
+        <module>hundsun-transaction-consumer</module>
+        <module>hundsun-logging-provider</module>
+        <module>hundsun-logging-consumer</module>
+        <module>hundsun-clearing-provider</module>
+        <module>hundsun-clearing-consumer</module>
+        <module>hundsun-reporting-provider</module>
+        <module>hundsun-reporting-consumer</module>
     </modules>
 
     <properties>
