@@ -3,55 +3,70 @@
 
 
 
-[service-name]-api/ 
+hundsun/
 
-|-- src/
+│
 
-|   |-- main/ 
+├── hundsun-api #所有的接口声明统一下载该文件中
 
-|       |-- java/
+├── hundsun-common # 存放工具类或常量等
 
-|           |-- com.example.[service-name]api/
+│——├──config# 存放配置类
 
-|               |-- dto/               *# 数据传输对象*
+│——├──components# 存放第三方组件
 
-|               |-- service/           *# 服务接口定义* 
+│——├──constant# 存放常量类
 
-|-- pom.xml                             *# Maven依赖管理* 
+│——├──enumeration# 存放枚举类
 
+│——├──exception# 存放异常类，统一继承BaseException
 
+│——└── result# 存放自定义返回类型，后端返回统一格式结果
 
-[service-name]-provider/ 
+├──hundsun-pojo
 
-|-- src/
+│——├──dto# 数据传输类
 
-|   |-- main/
+│——├──entity# 实体类
 
-|       |-- java/ 
+│——├──query# 数据查询类
 
-|           |-- com.example.[service-name]provider/
+│——└──vo# value object 值对象 
 
-|               |-- service/           *# 服务接口实现* 
+├── hundsun-user-provider # 用户服务模块相关代码的实现 端口8081
 
-|               |-- mapper/        *# 数据库操作* 
+├── hundsun-user-consumer # 用户服务controller接口 端口8082
 
-|               |-- entity/            *# 实体类定义* 
+├── hundsun-authentication-provider # 身份验证服务相关代码的实现 端口8083
 
-|-- pom.xml                             *# Maven依赖管理*
+├── hundsun-authentication-consumer # 身份验证服务controller接口 端口8084
 
+├── hundsun-fund-consumer # 基金服务controller接口 端口8085
 
+├── hundsun-fund-provider# 基金服务相关代码实现 端口8086
 
- [service-name]-consumer/ 
+├── hundsun-questionnaire-provider # 问卷服务相关代码实现 端口8087
 
-|-- src/
+├── hundsun-questionnaire-consumer # 问卷服务controller接口 端口8088
 
-|   |-- main/
+├── hundsun-transaction-provider # 交易服务相关代码实现 端口8089
 
-|       |-- java/
+├── hundsun-transaction-consumer # 交易模块controller接口 端口8090
 
-|           |-- com.example.[service-name]consumer/
+├── hundsun-logging-provider # 日志服务相关代码实现 端口8091
 
-|               |-- controller/        *# REST API 控制器* 
+├── hundsun-logging-consumer # 日志服务controller接口 端口8092
 
-|-- pom.xml                             *# Maven依赖管理*
+├── hundsun-clearing-provider # 清算服务相关代码实现 端口8093
 
+├── hundsun-clearing-consumer # 清算服务controller接口 端口8094
+
+├── hundsun-reporting-provider # 查询服务相关代码实现 端口8095
+
+├── hundsun-reporting-consumer # 查询服务controller接口 端口8096
+
+├── .gitignore
+
+├── pom.xml #Maven依赖管理
+
+└── README.md
