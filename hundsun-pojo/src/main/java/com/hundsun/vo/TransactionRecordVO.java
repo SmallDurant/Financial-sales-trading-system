@@ -1,4 +1,4 @@
-package com.hundsun.entity;
+package com.hundsun.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,11 +9,12 @@ import java.io.Serializable;
 
 /**
  * @author: Dding
- * @date: 2024/04/16
+ * @date: 2024/04/17
  **/
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class xxx implements Serializable {
+public class TransactionRecordVO implements Serializable {
+
 }
