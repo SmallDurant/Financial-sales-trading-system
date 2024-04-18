@@ -10,6 +10,13 @@ import java.util.List;
 public interface TransactionRecordService {
 
     /**
+     * 根据id查询交易记录
+     * @param id
+     * @return
+     */
+    public TransactionRecordVO getRecordById(Long id);
+
+    /**
      * 查询交易记录
      * @param transactionRecordDTO
      * @return
