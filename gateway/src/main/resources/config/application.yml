@@ -1,0 +1,7 @@
+app:
+  name: gateway
+  group: demo
+  server:
+    port: 12223
+  registry:
+    address: localhost:2181

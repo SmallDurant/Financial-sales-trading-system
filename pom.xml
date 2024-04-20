@@ -5,39 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.hundsun</groupId>
-    <artifactId>Financial-sales-trading-system</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>FinancialSaleTradingSystem</artifactId>
     <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>hundsun-api</module>
-        <module>hundsun-demo-provider</module>
-        <module>hundsun-demo-consumer</module>
-        <module>hundsun-common</module>
-        <module>hundsun-pojo</module>
-        <module>hundsun-user-consumer</module>
-        <module>hundsun-user-provider</module>
-        <module>hundsun-authentication-consumer</module>
-        <module>hundsun-authentication-provider</module>
-        <module>hundsun-fund-consumer</module>
-        <module>hundsun-fund-provider</module>
-        <module>hundsun-questionnaire-consumer</module>
-        <module>hundsun-questionnaire-provider</module>
-        <module>hundsun-transaction-provider</module>
-        <module>hundsun-transaction-consumer</module>
-        <module>hundsun-logging-provider</module>
-        <module>hundsun-logging-consumer</module>
-        <module>hundsun-clearing-provider</module>
-        <module>hundsun-clearing-consumer</module>
-        <module>hundsun-reporting-provider</module>
-        <module>hundsun-reporting-consumer</module>
+        <module>common</module>
+        <module>api</module>
+        <module>pojo</module>
+        <module>user</module>
+        <module>gateway</module>
+        <module>liquidation</module>
+        <module>fund</module>
+        <module>log</module>
+        <module>questionnaire</module>
+        <module>transaction</module>
+        <module>selection</module>
     </modules>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.hundsun.jrescloud</groupId>
@@ -46,10 +29,9 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <version>1.18.30</version>
         </dependency>
     </dependencies>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -61,4 +43,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 </project>
