@@ -1,7 +1,7 @@
 package com.hunsun.fund.security;
 
-import com.auth0.jwt.JWT;
 import com.hundsun.fund.utils.JwtUtil;
+import com.hunsun.fund.threadlocal.ThreadLocalUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -15,6 +15,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * @Author
@@ -57,17 +58,17 @@ public class UserRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 
         //设置角色
-        info.setRoles(new HashSet<>(JWT.decode(token).getClaim("roles").asList(String.class)));
+        info.setRoles(new HashSet<String>(ThreadLocalUtil.get("roles",List.class)));
 
         //设置权限
-        info.setStringPermissions(new HashSet<>(JWT.decode(token).getClaim("permissions").asList(String.class)));
+        info.setStringPermissions(new HashSet<String>(ThreadLocalUtil.get("permissions",List.class)));
         //返回权限实例
         return info;
     }
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        log.info("开始身份认证.....................");
+        //log.info("开始身份认证.....................");
 
         //获取token
         String token = (String) authenticationToken.getCredentials();

@@ -1,4 +1,4 @@
-package com.hundsun.fund.user.vo;
+package com.hundsun.fund.user.user.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

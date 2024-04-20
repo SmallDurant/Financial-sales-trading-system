@@ -1,21 +1,21 @@
-package com.hundsun.fund.user.vo;
+package com.hundsun.fund.user.user.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  * @Author
- * @Date 2024/4/19 17:13
+ * @Date 2024/4/11 11:55
  * @Description
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmployeeVO {
+@TableName("tpermission")
+public class SysPermission{
     private Long id;
     private String name;
-    private String phoneNumber;
-    private String department;
-    private String token;
+    private String perm;
 }

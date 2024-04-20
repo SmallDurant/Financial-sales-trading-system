@@ -1,26 +1,26 @@
 package com.hundsun.fund.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.hundsun.fund.user.dto.SysRegisterDTO;
-import com.hundsun.fund.user.dto.SysLoginDTO;
-import com.hundsun.fund.user.dto.SysUserInfoDTO;
-import com.hundsun.fund.user.entity.Employee;
-import com.hundsun.fund.user.entity.SysPermission;
-import com.hundsun.fund.user.entity.SysRole;
-import com.hundsun.fund.user.entity.SysUser;
 import com.hundsun.fund.exception.ServiceException;
 import com.hundsun.fund.mapper.EmployeeMapper;
-import com.hundsun.fund.user.UserService;
-import com.hundsun.fund.user.vo.EmployeeVO;
-import com.hundsun.fund.utils.Assert;
-import com.hundsun.fund.utils.BcryptUtil;
-import com.hundsun.fund.utils.JwtUtil;
-import com.hundsun.fund.user.vo.SysUserInfoVO;
-import com.hundsun.fund.user.vo.SysUserVO;
-import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
 import com.hundsun.fund.mapper.SysPermissionMapper;
 import com.hundsun.fund.mapper.SysRoleMapper;
 import com.hundsun.fund.mapper.SysUserMapper;
+import com.hundsun.fund.user.UserService;
+import com.hundsun.fund.user.user.dto.SysLoginDTO;
+import com.hundsun.fund.user.user.dto.SysRegisterDTO;
+import com.hundsun.fund.user.user.dto.SysUserInfoDTO;
+import com.hundsun.fund.user.user.entity.Employee;
+import com.hundsun.fund.user.user.entity.SysPermission;
+import com.hundsun.fund.user.user.entity.SysRole;
+import com.hundsun.fund.user.user.entity.SysUser;
+import com.hundsun.fund.user.user.vo.EmployeeVO;
+import com.hundsun.fund.user.user.vo.SysUserInfoVO;
+import com.hundsun.fund.user.user.vo.SysUserVO;
+import com.hundsun.fund.utils.Assert;
+import com.hundsun.fund.utils.BcryptUtil;
+import com.hundsun.fund.utils.JwtUtil;
+import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;
@@ -33,8 +33,9 @@ import java.util.List;
  */
 @CloudComponent
 @Slf4j
-//注册、开户、信息管理、提供信息、登陆验证，token发放
+//登陆、开户、信息管理、提供信息、登陆验证，token发放
 public class UserServiceImpl implements UserService {
+
     @Resource
     private SysUserMapper sysUserMapper;
 
@@ -89,7 +90,7 @@ public class UserServiceImpl implements UserService {
                     verifyEmployee.getPhoneNumber(),
                     verifyEmployee.getDepartment(),
                     JwtUtil.sign(verifyEmployee.getId().toString(), roles, permissions));
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage());
             throw new ServiceException(500, "登录失败");
         }
@@ -100,11 +101,11 @@ public class UserServiceImpl implements UserService {
     }
 
     public SysUserInfoVO getUserInfo(Long userId) {
-        return null;
+        return sysUserMapper.getInfo(userId);
     }
 
-    public SysUserInfoVO updateUserInfo(SysUserInfoDTO userNewInfo) {
-        return null;
+    public boolean updateUserInfo(SysUserInfoDTO userNewInfo) {
+        return sysUserMapper.updateInfo(userNewInfo);
     }
 
     //登出，token失效

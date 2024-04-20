@@ -6,3 +6,10 @@ app:
 
 config:
   location: classpath:middleware.properties
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

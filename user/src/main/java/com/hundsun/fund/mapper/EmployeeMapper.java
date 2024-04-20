@@ -1,7 +1,7 @@
 package com.hundsun.fund.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hundsun.fund.user.entity.Employee;
+import com.hundsun.fund.user.user.entity.Employee;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

@@ -1,6 +1,5 @@
 package com.hunsun.fund.threadlocal;
 
-import com.auth0.jwt.JWT;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -13,12 +12,9 @@ import javax.servlet.http.HttpServletResponse;
  * @Description
  */
 @Slf4j
-public class EmployeeInfoInterceptor implements HandlerInterceptor {
+public class UserInfoInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String token = request.getHeader("Authorization");
-        String userId = JWT.decode(token).getClaim("userId").as(String.class);
-        ThreadLocalUtil.setEmployeeId(userId);
         return true;
     }
 

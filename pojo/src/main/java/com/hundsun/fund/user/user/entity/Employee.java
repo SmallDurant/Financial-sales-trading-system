@@ -1,4 +1,4 @@
-package com.hundsun.fund.user.entity;
+package com.hundsun.fund.user.user.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

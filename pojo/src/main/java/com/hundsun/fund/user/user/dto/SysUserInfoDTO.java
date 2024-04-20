@@ -1,4 +1,4 @@
-package com.hundsun.fund.user.dto;
+package com.hundsun.fund.user.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SysUserInfoDTO {
+    private Long id;//用户ID
     private String name;//用户名
     private String email;//邮箱
     private String phoneNumber;//手机号

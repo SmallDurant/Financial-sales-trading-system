@@ -1,4 +1,4 @@
-package com.hundsun.fund.user.dto;
+package com.hundsun.fund.user.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,7 +1,7 @@
 package com.hundsun.fund.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hundsun.fund.user.entity.SysRole;
+import com.hundsun.fund.user.user.entity.SysRole;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
