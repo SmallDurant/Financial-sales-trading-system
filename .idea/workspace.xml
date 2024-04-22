@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="27b67790-f57f-4d4d-a7a1-91cc58f73f66" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/hundsun/fund/fund/FundService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/hundsun/fund/questionnaire/QuestionnaireService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund/src/main/java/com/hundsun/fund/mapper/FundMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund/src/main/java/com/hundsun/fund/service/FundServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund/src/main/resources/com/hundsun/mapper/FundMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund/src/main/resources/config/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund/src/main/resources/middleware.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/fund/FundController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/questionnaire/QuestionnaireController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/hundsun/fund/fund/dto/FundDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/hundsun/fund/fund/entity/Fund.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/hundsun/fund/fund/vo/FundVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/hundsun/fund/questionnaire/dto/QuestionnaireDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/mapper/QuestionnaireMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/service/QuestionnaireServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/questionnaire/src/resources/config/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/questionnaire/src/resources/mapper/QuestionnaireMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/questionnaire/src/resources/middleware.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/fund/QuestionnaireApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/QuestionnaireApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/UserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/mapper/EmployeeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/mapper/SysPermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/mapper/SysPermissionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/mapper/SysRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/mapper/SysRoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/mapper/SysUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/mapper/SysUserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/service/UserServiceImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\恒生训练营\repository" />
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="E:\恒生训练营\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2fEF7MQPsR8TgDCaepBWuEr1Ezu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "E:/恒生训练营/Financial-sales-trading-system/user/src/main/java/com/hundsun",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\恒生训练营\Financial-sales-trading-system\user\src\main\java\com\hundsun" />
+      <recent name="E:\恒生训练营\Financial-sales-trading-system\questionnaire\src\main\java\com\hundsun" />
+      <recent name="E:\恒生训练营\Financial-sales-trading-system\user\src\main\java\com\fund" />
+      <recent name="E:\恒生训练营\Financial-sales-trading-system\gateway\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\恒生训练营\Financial-sales-trading-system\hundsun-fund-provider\src\main\resources\com\hundsun" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.UserApplication">
+    <configuration name="FundApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hundsun.fund.FundApplication" />
+      <module name="fund" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hundsun.fund.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateWayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hunsun.fund.GateWayApplication" />
+      <module name="gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hunsun.fund.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hundsun.UserApplication" />
+      <module name="user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hundsun.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.fund.hundsun.UserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fund.hundsun.UserApplication" />
+      <module name="user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fund.hundsun.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.hundsun.QuestionnaireApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hundsun.QuestionnaireApplication" />
+      <module name="questionnaire" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hundsun.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.UserApplication" />
+        <item itemvalue="应用程序.FundApplication" />
+        <item itemvalue="应用程序.com.hundsun.QuestionnaireApplication" />
+        <item itemvalue="应用程序.GateWayApplication" />
+        <item itemvalue="应用程序.com.fund.hundsun.UserApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="27b67790-f57f-4d4d-a7a1-91cc58f73f66" name="更改" comment="" />
+      <created>1713358162816</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713358162816</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

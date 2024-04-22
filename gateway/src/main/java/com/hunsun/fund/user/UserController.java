@@ -1,6 +1,7 @@
 package com.hunsun.fund.user;
 
 import com.hundsun.fund.api.Result;
+import com.hundsun.fund.questionnaire.QuestionnaireService;
 import com.hundsun.fund.user.dto.SysLoginDTO;
 import com.hundsun.fund.user.UserService;
 import com.hundsun.jrescloud.rpc.annotation.CloudReference;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @CloudReference
     private UserService userService;
+
 
     @RequestMapping("/test")
     public Result test(){
