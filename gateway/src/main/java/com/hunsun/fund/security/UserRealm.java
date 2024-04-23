@@ -2,6 +2,7 @@ package com.hunsun.fund.security;
 
 import com.auth0.jwt.JWT;
 import com.hundsun.fund.utils.JwtUtil;
+import com.hundsun.fund.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -14,6 +15,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.HashSet;
 
 /**
@@ -25,6 +27,9 @@ import java.util.HashSet;
 @Component
 @Slf4j
 public class UserRealm extends AuthorizingRealm {
+
+    @Resource
+    private RedisUtil redisUtil;
 
     //private long expireTime;
 
@@ -67,11 +72,12 @@ public class UserRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        log.info("开始身份认证.....................");
+        //log.info("开始身份认证.....................");
 
         //获取token
         String token = (String) authenticationToken.getCredentials();
 
+        if (redisUtil.sIsMember("invalidtoken", token)) throw new AuthenticationException("Token无效，请重新登录!");
         //jwt校验
         if (!JwtUtil.verify(token))
             throw new AuthenticationException("Token失效，请重新登录!");

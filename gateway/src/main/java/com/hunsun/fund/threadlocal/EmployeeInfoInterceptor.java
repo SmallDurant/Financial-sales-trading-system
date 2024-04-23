@@ -17,8 +17,9 @@ public class EmployeeInfoInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getHeader("Authorization");
-        String userId = JWT.decode(token).getClaim("userId").as(String.class);
-        ThreadLocalUtil.setEmployeeId(userId);
+        ThreadLocalUtil.set("roles",JWT.decode(token).getClaim("roles").asList(String.class));
+        ThreadLocalUtil.set("token",token);
+        ThreadLocalUtil.setEmployeeId(JWT.decode(token).getClaim("userId").as(String.class));
         return true;
     }
 

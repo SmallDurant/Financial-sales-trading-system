@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hundsun.mapper.SysUserMapper">
+    <select id="getUserInfo" resultType="com.hundsun.fund.user.vo.SysUserInfoVO">
+        SELECT name,id_number, email, phone_number, province, city, address, occupation, industry, work_unit, educational_background, is_dishonest, customer_type, risk_profile
+        from tuser
+        where user_id = #{userId}
+    </select>
+
+    <update id="updateUserInfo" parameterType="com.hundsun.fund.user.dto.SysUserInfoDTO">
+        UPDATE tuser
+        <set>
+            <if test="name!= null and name!= ''">
+                name = #{name},
+            </if>
+            <if test="email!=null and email!=''">
+                email = #{email},
+            </if>
+            <if test="phoneNumber!=null and phoneNumber!=''">
+                phone_number = #{phoneNumber},
+            </if>
+            <if test="province!=null and province!=''">
+                province = #{province},
+            </if>
+            <if test="city!=null and city!=''">
+                city = #{city},
+            </if>
+            <if test="address!=null and address!=''">
+                address = #{address},
+            </if>
+            <if test="occupation!=null and occupation!=''">
+                occupation = #{occupation},
+            </if>
+            <if test="industry!=null and industry!=''">
+                industry = #{industry},
+            </if>
+            <if test="workUnit!=null and workUnit!=''">
+                work_unit = #{workUnit},
+            </if>
+            <if test="educationalBackground!=null and educationalBackground!=''">
+                educational_background = #{educationalBackground},
+            </if>
+        </set >
+        WHERE user_id = #{id}
+    </update>
+
+</mapper>
+

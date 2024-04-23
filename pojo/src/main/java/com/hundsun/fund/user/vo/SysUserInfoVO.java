@@ -26,4 +26,5 @@ public class SysUserInfoVO {
     private int educationalBackground;//学历
     private boolean isDishonest;//是否失信
     private int customerType;//客户类型
+    private int riskProfile;//风险评级
 }
