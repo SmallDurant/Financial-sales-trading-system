@@ -1,5 +1,6 @@
 package com.hundsun.fund.utils;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.ScanOptions;
@@ -7,6 +8,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -21,11 +23,8 @@ public class RedisUtil {
     /**
      * redis 操作模板
      */
-    private final StringRedisTemplate redisTemplate;
-
-    public RedisUtil(StringRedisTemplate redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     // ------------------ key 相关操作 ------------------
 
@@ -1328,7 +1327,7 @@ public class RedisUtil {
      * @param destKey  目标 key
      * @return 数量
      */
-    public Long zIntersectAndStore(String key, String otherKey,
+    public Long zIntesrsectAndStore(String key, String otherKey,
                                    String destKey) {
         return redisTemplate.opsForZSet().intersectAndStore(key, otherKey,
                 destKey);

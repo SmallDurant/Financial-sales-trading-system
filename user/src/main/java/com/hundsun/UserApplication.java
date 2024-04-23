@@ -3,6 +3,7 @@ package com.hundsun;
 import com.hundsun.jrescloud.common.boot.CloudApplication;
 import com.hundsun.jrescloud.common.boot.CloudBootstrap;
 import com.hundsun.jrescloud.db.core.configuration.EnableCloudDataSource;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @Author
@@ -10,7 +11,8 @@ import com.hundsun.jrescloud.db.core.configuration.EnableCloudDataSource;
  * @Description
  */
 @EnableCloudDataSource
-@CloudApplication
+@CloudApplication()
+@ComponentScan(basePackages = {"com.hundsun.*"})
 public class UserApplication {
     public static void main(String[] args) {
         CloudBootstrap.run(UserApplication.class, args);
