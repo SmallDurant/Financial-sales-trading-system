@@ -1,10 +1,10 @@
-package com.hundsun.service;
+package com.hundsun.fund.service;
 
 
 import com.hundsun.fund.questionnaire.QuestionnaireService;
 import com.hundsun.fund.questionnaire.dto.QuestionnaireDTO;
 import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
-import com.hundsun.mapper.QuestionnaireMapper;
+import com.hundsun.fund.mapper.QuestionnaireMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -24,7 +24,7 @@ public interface FundMapper {
     int createFund(FundDTO fund);
 
     //@Update("UPDATE tfund SET fund_code = #{fundCode}, fund_name = #{fundName}, fund_administrator = #{fundAdministrator}, fund_trustee = #{fundTrustee}, fund_issuer = #{fundIssuer}, effective_date = #{effectiveDate}, fund_type = #{fundType}, transaction_currency = #{transactionCurrency}, fund_risk = #{fundRisk}, fund_status = #{fundStatus}, charge_way = #{chargeWay}, purchase_rate = #{purchaseRate}, redemption_rate = #{redemptionRate}, management_fee_rate = #{managementFeeRate}, custodian_fee_rate = #{custodianFeeRate}, fund_size = #{fundSize}, establishment_scale = #{establishmentScale}, fund_shares = #{fundShares}, min_subscription = #{minSubscription}, nav = #{nav}, cnav = #{cnav}, investment_philosophy = #{investmentPhilosophy}, investment_scope = #{investmentScope}, investment_strategy = #{investmentStrategy}, operation_mode = #{operationMode}, fund_stage = #{fundStage}, is_delete = #{isDelete} WHERE fund_id = #{fundId}")
-    int updateFund(@Param("fundId") Long fundId,@Param("fund") FundDTO fund);
+    int updateFund(@Param("fundId") Long fundId,@Param("fund") FundDTO fundDTO);
 
 
     //@Update("UPDATE tfund SET is_delete = true WHERE fund_id = #{fundId}")

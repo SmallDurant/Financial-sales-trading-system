@@ -26,7 +26,7 @@ public interface FundService {
 
     //更新指定ID基金
     @CloudFunction("updateFund")
-    Boolean updateFund(@PathVariable Long fundId, @RequestBody FundDTO fund);
+    Boolean updateFund(@PathVariable Long fundId, @RequestBody FundDTO fundDTO);
 
     //删除指定基金
     @CloudFunction("deleteFund")

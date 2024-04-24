@@ -21,7 +21,7 @@ public class FundController {
     @CloudReference
     private FundService fundService;
 
-    @GetMapping // 对应HTTP GET，用于获取所有基金信息
+    @GetMapping("/get") // 对应HTTP GET，用于获取所有基金信息
     public Result getAllFunds() {
 
         log.info("获取所有基金信息");
@@ -29,10 +29,10 @@ public class FundController {
         return  Result.success(fundService.findAllFunds());
     }
 
-    @GetMapping("/{fundId}") // 对应HTTP GET，用于获取指定基金的信息
+    @GetMapping("/get/{fundId}") // 对应HTTP GET，用于获取指定基金的信息
     public Result getFundById(@PathVariable Long fundId) {
 
-        log.info("获取所有基金信息");
+        log.info("获取fundId基金信息");
 
         return Result.success(fundService.findFundById(fundId));
     }
@@ -49,18 +49,20 @@ public class FundController {
 
     }
 
-    @PutMapping("/{fundId}") // 对应HTTP PUT，用于更新指定基金信息
+    @PutMapping("/update/{fundId}") // 对应HTTP PUT，用于更新指定基金信息
     public Result updateFund(@PathVariable Long fundId, @RequestBody FundDTO fundDTO) {
 
         log.info("更新指定基金信息");
+        log.info(fundDTO.toString());
         Boolean res = fundService.updateFund(fundId, fundDTO);
+
         if(res){
             return Result.success("更新成功");
         }
         else return Result.error("更新失败");
     }
 
-    @DeleteMapping("/{fundId}") // 对应HTTP DELETE，用于删除指定基金信息
+    @DeleteMapping("/delete/{fundId}") // 对应HTTP DELETE，用于删除指定基金信息
     public Result deleteFund(@PathVariable Long fundId) {
 
         log.info("删除指定基金");

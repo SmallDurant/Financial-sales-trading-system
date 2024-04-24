@@ -51,35 +51,35 @@
     </insert>
 
     <!-- 更新fundId基金  可能有问题-->
-    <update id="updateFund" parameterType="com.hundsun.fund.fund.dto.FundDTO">
+    <update id="updateFund">
         UPDATE tfund
-        SET fund_code = #{fundCode},
-        fund_name = #{fundName},
-        fund_administrator = #{fundAdministrator},
-        fund_trustee = #{fundTrustee},
-        fund_issuer = #{fundIssuer},
-        effective_date = #{effectiveDate},
-        fund_type = #{fundType},
-        transaction_currency = #{transactionCurrency},
-        fund_risk = #{fundRisk},
-        fund_status = #{fundStatus},
-        charge_way = #{chargeWay},
-        purchase_rate = #{purchaseRate},
-        redemption_rate = #{redemptionRate},
-        management_fee_rate = #{managementFeeRate},
-        custodian_fee_rate = #{custodianFeeRate},
-        fund_size = #{fundSize},
-        establishment_scale = #{establishmentScale},
-        fund_shares = #{fundShares},
-        min_purchase_amount = #{minPurchaseAmount},
-        nav = #{nav},
-        cnav = #{cnav},
-        investment_philosophy = #{investmentPhilosophy},
-        investment_scope = #{investmentScope},
-        investment_strategy = #{investmentStrategy},
-        operation_mode = #{operationMode},
-        fund_stage = #{fundStage},
-        is_delete = #{isDelete}
+        SET fund_code = #{fund.fundCode},
+        fund_name = #{fund.fundName},
+        fund_administrator = #{fund.fundAdministrator},
+        fund_trustee = #{fund.fundTrustee},
+        fund_issuer = #{fund.fundIssuer},
+        effective_date = #{fund.effectiveDate},
+        fund_type = #{fund.fundType},
+        transaction_currency = #{fund.transactionCurrency},
+        fund_risk = #{fund.fundRisk},
+        fund_status = #{fund.fundStatus},
+        charge_way = #{fund.chargeWay},
+        purchase_rate = #{fund.purchaseRate},
+        redemption_rate = #{fund.redemptionRate},
+        management_fee_rate = #{fund.managementFeeRate},
+        custodian_fee_rate = #{fund.custodianFeeRate},
+        fund_size = #{fund.fundSize},
+        establishment_scale = #{fund.establishmentScale},
+        fund_shares = #{fund.fundShares},
+        min_purchase_amount = #{fund.minPurchaseAmount},
+        nav = #{fund.nav},
+        cnav = #{fund.cnav},
+        investment_philosophy = #{fund.investmentPhilosophy},
+        investment_scope = #{fund.investmentScope},
+        investment_strategy = #{fund.investmentStrategy},
+        operation_mode = #{fund.operationMode},
+        fund_stage = #{fund.fundStage},
+        is_delete = #{fund.isDelete}
         WHERE fund_id = #{fundId}
     </update>
 

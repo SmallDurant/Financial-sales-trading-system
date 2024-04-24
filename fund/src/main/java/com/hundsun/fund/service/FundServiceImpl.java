@@ -6,13 +6,15 @@ import com.hundsun.fund.fund.FundService;
 import com.hundsun.fund.fund.dto.FundDTO;
 import com.hundsun.fund.mapper.FundMapper;
 import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 
 @CloudComponent
 public class FundServiceImpl implements FundService {
-
+    @Autowired
     private FundMapper fundMapper;
     @Override
     public List<FundDTO> findAllFunds() {
@@ -34,9 +36,9 @@ public class FundServiceImpl implements FundService {
     }
 
     @Override
-    public Boolean updateFund(Long fundId, FundDTO fund) {
+    public Boolean updateFund(Long fundId, FundDTO fundDTO) {
 
-        int result = fundMapper.updateFund(fundId, fund);
+        int result = fundMapper.updateFund(fundId, fundDTO);
         return result > 0;
     }
 

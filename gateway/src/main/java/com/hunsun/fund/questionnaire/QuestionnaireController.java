@@ -33,7 +33,7 @@ public class QuestionnaireController {
         }
     }
 
-    @DeleteMapping("/{questionnaireId}") // 对应HTTP DELETE，用于删除指定问卷信息
+    @DeleteMapping("/delete/{questionnaireId}") // 对应HTTP DELETE，用于删除指定问卷信息
     public Result deleteQuestionnaire(@PathVariable Long questionnaireId) {
         log.info("删除指定问卷");
         Boolean res = questionnaireService.deleteQuestionnaire(questionnaireId);
@@ -44,7 +44,7 @@ public class QuestionnaireController {
         }
     }
 
-    @PutMapping("/{questionnaireId}") // 对应HTTP PUT，用于更新指定问卷信息
+    @PutMapping("/update/{questionnaireId}") // 对应HTTP PUT，用于更新指定问卷信息
     public Result updateQuestionnaire(@PathVariable Long questionnaireId, @RequestBody QuestionnaireDTO updatedQuestionnaire) {
         log.info("更新指定问卷信息");
         Boolean res = questionnaireService.updateQuestionnaire(questionnaireId, updatedQuestionnaire);
@@ -62,10 +62,10 @@ public class QuestionnaireController {
         return Result.success(questionnaireService.getTopQuestionnaires());
     }
 
-    @GetMapping("/next")// 对应HTTP GET，用于获取接下来10个问卷的信息
+    @GetMapping("/next/{questionnaireId}")// 对应HTTP GET，用于获取接下来10个问卷的信息
     public Result getNextTenQuestionnaires(@PathVariable Long questionnaireId){
 
-        log.info("获取前10个问卷的信息");
+        log.info("获取接下来10个问卷的信息");
 
         return Result.success(questionnaireService.getNextQuestionnaires(questionnaireId));
     }

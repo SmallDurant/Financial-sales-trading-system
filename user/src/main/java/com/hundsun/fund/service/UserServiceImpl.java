@@ -1,4 +1,4 @@
-package com.hundsun.service;
+package com.hundsun.fund.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hundsun.fund.exception.ServiceException;
@@ -19,10 +19,10 @@ import com.hundsun.fund.utils.BcryptUtil;
 import com.hundsun.fund.utils.JwtUtil;
 import com.hundsun.fund.utils.RedisUtil;
 import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
-import com.hundsun.mapper.EmployeeMapper;
-import com.hundsun.mapper.SysPermissionMapper;
-import com.hundsun.mapper.SysRoleMapper;
-import com.hundsun.mapper.SysUserMapper;
+import com.hundsun.fund.mapper.EmployeeMapper;
+import com.hundsun.fund.mapper.SysPermissionMapper;
+import com.hundsun.fund.mapper.SysRoleMapper;
+import com.hundsun.fund.mapper.SysUserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 

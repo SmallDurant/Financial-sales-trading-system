@@ -1,4 +1,4 @@
-package com.hundsun.mapper;
+package com.hundsun.fund.mapper;
 
 import com.hundsun.fund.questionnaire.dto.QuestionnaireDTO;
 import org.apache.ibatis.annotations.Mapper;

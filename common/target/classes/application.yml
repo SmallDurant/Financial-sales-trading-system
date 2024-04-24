@@ -5,11 +5,11 @@ app:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hundsun?serverTimezone=GMT%2b8
-    username: root
-    password: 951753.0
+    url: jdbc:mysql://123.60.152.234:3306/hundsun?serverTimezone=GMT%2b8
+    username: chl
+    password: 123456
   redis:
-    host: localhost
+    host: 127.0.0.1
     port: 6379
     database: 0
     timeout: 6000

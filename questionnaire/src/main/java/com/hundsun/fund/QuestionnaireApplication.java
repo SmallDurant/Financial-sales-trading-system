@@ -1,4 +1,4 @@
-package com.hundsun;
+package com.hundsun.fund;
 
 import com.hundsun.jrescloud.common.boot.CloudApplication;
 import com.hundsun.jrescloud.common.boot.CloudBootstrap;
