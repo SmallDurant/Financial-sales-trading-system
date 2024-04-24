@@ -6,3 +6,7 @@ app:
 
 config:
   location: classpath:middleware.properties
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

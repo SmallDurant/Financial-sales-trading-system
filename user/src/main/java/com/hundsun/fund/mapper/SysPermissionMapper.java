@@ -1,4 +1,4 @@
-package com.hundsun.mapper;
+package com.hundsun.fund.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

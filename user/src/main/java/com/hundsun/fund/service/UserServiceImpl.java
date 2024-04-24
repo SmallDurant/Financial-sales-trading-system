@@ -1,5 +1,6 @@
-package com.hundsun.service;
+package com.hundsun.fund.service;
 
+import com.auth0.jwt.JWT;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hundsun.fund.exception.ServiceException;
 import com.hundsun.fund.user.UserService;
@@ -19,17 +20,20 @@ import com.hundsun.fund.utils.BcryptUtil;
 import com.hundsun.fund.utils.JwtUtil;
 import com.hundsun.fund.utils.RedisUtil;
 import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
-import com.hundsun.mapper.EmployeeMapper;
-import com.hundsun.mapper.SysPermissionMapper;
-import com.hundsun.mapper.SysRoleMapper;
-import com.hundsun.mapper.SysUserMapper;
+import com.hundsun.fund.mapper.EmployeeMapper;
+import com.hundsun.fund.mapper.SysPermissionMapper;
+import com.hundsun.fund.mapper.SysRoleMapper;
+import com.hundsun.fund.mapper.SysUserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author
@@ -64,14 +68,14 @@ public class UserServiceImpl implements UserService {
         // 验证账号状态
         Assert.state(verifyUser.getAccountStatus() == 2, 401, "账号已被冻结");
         Assert.state(verifyUser.getAccountStatus() == 3, 401, "账号已注销");
-        Assert.notNull(redisUtil.hGet("token", verifyUser.getId().toString()), 401, "账号已在其他地方登录");
+        Assert.notNull(redisUtil.get("token:"+ verifyUser.getId().toString()), 401, "账号已在其他地方登录");
 
         try {
             //获得用户角色和权限
             List<SysRole> roles = sysRoleMapper.getUserRole(verifyUser.getId());
             List<SysPermission> permissions = sysPermissionMapper.getPermission(roles.stream().map(SysRole::getId).toArray(Long[]::new));
             String token = JwtUtil.sign(verifyUser.getId().toString(), roles, permissions);
-            redisUtil.hPut("token", verifyUser.getId().toString(), token);
+            redisUtil.setEx("token:"+verifyUser.getId().toString(), token,30, TimeUnit.MINUTES);
             //返回user信息和token
             return new SysUserVO(verifyUser.getId(),
                     verifyUser.getName(),
@@ -88,7 +92,7 @@ public class UserServiceImpl implements UserService {
         // 验证账号密码
         Assert.isNull(verifyEmployee, 401, "账号不存在");
         Assert.state(!BcryptUtil.match(employee.getPassword(), verifyEmployee.getPassword()), 401, "密码错误");
-        Assert.notNull(redisUtil.hGet("token", verifyEmployee.getId().toString()), 401, "账号已在其他地方登录");
+        Assert.notNull(redisUtil.get("token-employee:"+verifyEmployee.getId().toString()), 401, "账号已在其他地方登录");
 
 
         try {
@@ -97,7 +101,7 @@ public class UserServiceImpl implements UserService {
             List<SysPermission> permissions = sysPermissionMapper.getPermission(roles.stream().map(SysRole::getId).toArray(Long[]::new));
             //返回user信息和token
             String token = JwtUtil.sign(verifyEmployee.getId().toString(), roles, permissions);
-            redisUtil.hPut("token", verifyEmployee.getId().toString(), token);
+            redisUtil.setEx("token-employee:"+verifyEmployee.getId().toString(), token,30, TimeUnit.MINUTES);
             return new EmployeeVO(verifyEmployee.getId(),
                     verifyEmployee.getName(),
                     verifyEmployee.getPhoneNumber(),
@@ -123,7 +127,7 @@ public class UserServiceImpl implements UserService {
                     add(new SysRole(0L, "user", "普通用户"));
                 }},
                 new ArrayList<>());
-        redisUtil.hPut("token", user.getId().toString(), token);
+        redisUtil.setEx("token"+user.getId().toString(), token,30, TimeUnit.MINUTES);
         //返回user信息和token
         return new SysUserVO(user.getId(),
                 user.getName(),
@@ -145,7 +149,12 @@ public class UserServiceImpl implements UserService {
 
     //登出，token失效
     public Boolean logout(Long userId, String token) {
-        redisUtil.hDelete("token", userId.toString());
+        Set<String> roles = new HashSet<String>(JWT.decode(token).getClaim("roles").asList(String.class));
+        if (roles.contains("user")) {
+            redisUtil.delete("token:"+userId.toString());
+        }else{
+            redisUtil.delete("token-employee:"+userId.toString());
+        }
         redisUtil.sAdd("invalidtoken", token);
         return true;
     }

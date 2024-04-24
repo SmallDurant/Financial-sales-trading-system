@@ -1,4 +1,4 @@
-package com.hundsun.mapper;
+package com.hundsun.fund.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.hundsun.fund.user.dto.SysEmployeeInfoDTO;
