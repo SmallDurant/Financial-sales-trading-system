@@ -20,6 +20,7 @@
         <module>questionnaire</module>
         <module>transaction</module>
         <module>selection</module>
+        <module>account</module>
     </modules>
     <dependencies>
         <dependency>

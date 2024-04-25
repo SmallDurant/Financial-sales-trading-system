@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hundsun.fund.mapper.AccountMapper">
+    <select id="selectAvailableAccount" resultType="com.hundsun.fund.account.vo.AccountSearchVO"
+            parameterType="com.hundsun.fund.account.dto.AccountSearchDTO">
+        SELECT bankcard_number,belong_bank
+        from taccount
+        where status = 0 and user_id in (
+        select user_id from tuser
+        <where>
+            <if test="account != null and account != ''">
+                and account = #{account}
+            </if>
+            <if test="id_number != null and id_number != ''">
+                and id_number = #{id_number}
+            </if>
+            <if test="phone_number != null and phone_number != ''">
+                and phone_number = #{phone_number}
+            </if>
+        </where>
+        )
+    </select>
+
+    <select id="selectAllAccount" resultType="com.hundsun.fund.account.vo.AccountSearchVO"
+            parameterType="com.hundsun.fund.account.dto.AccountSearchDTO">
+        SELECT bankcard_number,belong_bank
+        from taccount
+        where user_id in (
+        select user_id from tuser
+        <where>
+            <if test="account != null and account != ''">
+                and account = #{account}
+            </if>
+            <if test="id_number != null and id_number != ''">
+                and id_number = #{id_number}
+            </if>
+            <if test="phone_number != null and phone_number != ''">
+                and phone_number = #{phone_number}
+            </if>
+        </where>
+        )
+    </select>
+
+</mapper>
