@@ -69,4 +69,11 @@ public class QuestionnaireController {
 
         return Result.success(questionnaireService.getNextQuestionnaires(questionnaireId));
     }
+
+    @GetMapping("/all") // 对应HTTP GET，用于获取前10个问卷的信息
+    public Result getAllQuestionnaires() {
+        log.info("获取所有问卷的信息");
+
+        return Result.success(questionnaireService.getAllQuestionnaires());
+    }
 }

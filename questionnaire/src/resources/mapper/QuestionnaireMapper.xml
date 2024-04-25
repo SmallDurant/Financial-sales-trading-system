@@ -31,8 +31,16 @@
     <!-- 获取接下来的10个问卷，从上一批问卷的最后一个问卷的ID开始 -->
     <select id="getNextTenQuestionnaires" resultType="com.hundsun.fund.questionnaire.dto.QuestionnaireDTO">
         SELECT question_id AS 'questionId', stem, `option`, percent, is_delete AS 'isDelete'
+        FROM tquestion
         WHERE question_id > #{lastQuestionnaireId}
         ORDER BY question_id ASC
         LIMIT 10
     </select>
+
+    <select id="selectAllQuestionnaires" resultType="com.hundsun.fund.questionnaire.dto.QuestionnaireDTO">
+        SELECT question_id AS 'questionId', stem, `option`, percent, is_delete AS 'isDelete'
+        FROM tquestion
+        WHERE is_delete = false
+    </select>
+
 </mapper>

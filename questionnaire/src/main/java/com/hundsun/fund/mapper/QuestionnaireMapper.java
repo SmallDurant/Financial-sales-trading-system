@@ -27,5 +27,8 @@ public interface QuestionnaireMapper {
 
     //获取接下来的10个问卷
     List<QuestionnaireDTO> getNextTenQuestionnaires(@Param("lastQuestionnaireId") long lastQuestionnaireId);
+
+    //获取所有问卷
+    List<QuestionnaireDTO> selectAllQuestionnaires();
 }
 

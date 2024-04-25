@@ -31,4 +31,8 @@ public interface FundService {
     //删除指定基金
     @CloudFunction("deleteFund")
     Boolean deleteFund(@PathVariable Long fundId);
+
+
+
+
 }

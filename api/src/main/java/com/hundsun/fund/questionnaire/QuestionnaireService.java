@@ -28,4 +28,8 @@ public interface QuestionnaireService {
     // 获取接下来的10个问卷的列表
     @CloudFunction("getNextQuestionnaires")
     List<QuestionnaireDTO> getNextQuestionnaires(Long lastQuestionnaireId);
+
+    // 获取所有问卷的列表
+    @CloudFunction("getAllQuestionnaires")
+    List<QuestionnaireDTO> getAllQuestionnaires();
 }

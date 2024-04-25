@@ -2,7 +2,7 @@ package com.hundsun.fund.fund.dto;
 
 import java.math.BigDecimal;
 
-public class FundholdingsDTO {
+public class FundportionDTO {
 
     private Long id;
     private Long userId;

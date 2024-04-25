@@ -6,12 +6,15 @@ import com.hundsun.fund.questionnaire.dto.QuestionnaireDTO;
 import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
 import com.hundsun.fund.mapper.QuestionnaireMapper;
 import org.apache.ibatis.annotations.Param;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @CloudComponent
 public class QuestionnaireServiceImpl implements QuestionnaireService {
+    private static final Logger log = LoggerFactory.getLogger(QuestionnaireServiceImpl.class);
     @Autowired
     private QuestionnaireMapper questionnaireMapper;
     @Override
@@ -42,6 +45,13 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
         return questionnaireMapper.getNextTenQuestionnaires(lastQuestionnaireId);
     }
 
+    @Override
+    public List<QuestionnaireDTO> getAllQuestionnaires() {
+        log.info("------------------------");
+        List<QuestionnaireDTO> a = questionnaireMapper.selectAllQuestionnaires();
+        log.info(a.toString());
+        return questionnaireMapper.selectAllQuestionnaires();
+    }
 
 
 }
