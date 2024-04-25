@@ -5,37 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b67790-f57f-4d4d-a7a1-91cc58f73f66" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/hundsun/fund/fund/dto/FundholdingsDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/hundsun/fund/questionnaire/vo/QuestionnaireVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/hundsun/fund/fund/PortionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund/src/main/java/com/hundsun/fund/mapper/PortionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund/src/main/java/com/hundsun/fund/service/PortionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fund/src/main/resources/com/hundsun/fund/mapper/PortionMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/fund/PortionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/hundsun/fund/fund/FundService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/hundsun/fund/fund/FundService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fund/src/main/java/com/hundsun/fund/mapper/FundMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/fund/src/main/java/com/hundsun/fund/mapper/FundMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fund/src/main/java/com/hundsun/fund/service/FundServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fund/src/main/java/com/hundsun/fund/service/FundServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fund/src/main/resources/com/hundsun/mapper/FundMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fund/src/main/resources/com/hundsun/fund/mapper/FundMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fund/target/classes/com/hundsun/fund/service/FundServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fund/target/classes/com/hundsun/fund/service/FundServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/fund/FundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/fund/FundController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/hundsun/fund/questionnaire/QuestionnaireService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/hundsun/fund/questionnaire/QuestionnaireService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/target/classes/com/hundsun/fund/questionnaire/QuestionnaireService.class" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/com/hundsun/fund/questionnaire/QuestionnaireService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/questionnaire/QuestionnaireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/questionnaire/QuestionnaireController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/security/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/hunsun/fund/security/JwtFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/hunsun/fund/fund/FundController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/hunsun/fund/fund/FundController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/hunsun/fund/questionnaire/QuestionnaireController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/hunsun/fund/questionnaire/QuestionnaireController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/hunsun/fund/security/JwtFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/hunsun/fund/security/JwtFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/hundsun/fund/fund/dto/FundholdingsDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/target/classes/com/hundsun/fund/fund/dto/FundholdingsDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/QuestionnaireApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/fund/QuestionnaireApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/mapper/QuestionnaireMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/fund/mapper/QuestionnaireMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/service/QuestionnaireServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/fund/service/QuestionnaireServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/hundsun/fund/fund/dto/FundholdingsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/hundsun/fund/fund/dto/FundportionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/fund/mapper/QuestionnaireMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/fund/mapper/QuestionnaireMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/fund/service/QuestionnaireServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/questionnaire/src/main/java/com/hundsun/fund/service/QuestionnaireServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/questionnaire/src/resources/mapper/QuestionnaireMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/questionnaire/src/resources/mapper/QuestionnaireMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questionnaire/target/classes/com/hundsun/QuestionnaireApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/questionnaire/target/classes/com/hundsun/fund/mapper/QuestionnaireMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/questionnaire/target/classes/com/hundsun/fund/mapper/QuestionnaireMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/questionnaire/target/classes/com/hundsun/fund/service/QuestionnaireServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/questionnaire/target/classes/com/hundsun/fund/service/QuestionnaireServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questionnaire/target/classes/com/hundsun/mapper/QuestionnaireMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/questionnaire/target/classes/com/hundsun/service/QuestionnaireServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/mapper/EmployeeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/mapper/SysPermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/mapper/SysPermissionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/mapper/SysRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/mapper/SysRoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/mapper/SysUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/mapper/SysUserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/hundsun/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/hundsun/fund/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/resources/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/resources/mapper/EmployeeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +31,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -69,23 +56,23 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "E:/恒生训练营/Financial-sales-trading-system",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "android.project.structure"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/恒生训练营/Financial-sales-trading-system&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;android.project.structure&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\恒生训练营\Financial-sales-trading-system\user\src\main\java\com\hundsun" />
@@ -97,7 +84,7 @@
       <recent name="E:\恒生训练营\Financial-sales-trading-system\hundsun-fund-provider\src\main\resources\com\hundsun" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.com.hundsun.QuestionnaireApplication">
+  <component name="RunManager" selected="应用程序.QuestionnaireApplication">
     <configuration name="FundApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.hundsun.fund.FundApplication" />
       <module name="fund" />
@@ -178,11 +165,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.com.hundsun.QuestionnaireApplication" />
+        <item itemvalue="应用程序.QuestionnaireApplication" />
         <item itemvalue="应用程序.GateWayApplication" />
         <item itemvalue="应用程序.FundApplication" />
         <item itemvalue="应用程序.UserApplication" />
-        <item itemvalue="应用程序.com.hundsun.QuestionnaireApplication" />
       </list>
     </recent_temporary>
   </component>
