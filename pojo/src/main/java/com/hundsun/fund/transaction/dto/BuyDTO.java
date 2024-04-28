@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @author: Dding
  * @date: 2024/04/24
@@ -13,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BuyDTO {
+public class BuyDTO implements Serializable {
 
     //购买金额
     private Double amount;

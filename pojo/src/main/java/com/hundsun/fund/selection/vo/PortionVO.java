@@ -1,4 +1,4 @@
-package com.hundsun.fund.transaction.dto;
+package com.hundsun.fund.selection.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,11 +9,12 @@ import java.io.Serializable;
 
 /**
  * @author: Dding
- * @date: 2024/04/24
+ * @date: 2024/04/29
  **/
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SellDTO implements Serializable {
+public class PortionVO implements Serializable {
+
 }
