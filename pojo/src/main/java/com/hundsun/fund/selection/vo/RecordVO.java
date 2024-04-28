@@ -1,4 +1,4 @@
-package com.hundsun.fund.transaction.vo;
+package com.hundsun.fund.selection.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransactionRecordVO implements Serializable {
+public class RecordVO implements Serializable {
 
     // 基金代码
     private String fundCode;

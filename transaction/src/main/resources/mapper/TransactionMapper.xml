@@ -3,31 +3,5 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hundsun.fund.mapper.TransactionMapper">
 
-    <select id="getTransactionRecord" resultType="com.hundsun.fund.transaction.vo.TransactionRecordVO">
-        select fund_id, account_id, type, use_id, request_time, state
-        from trequest
-        <where>
-            <if test="fundId != null">
-                and fund_id = #{fundId}
-            </if>
-            <if test="accountId != null">
-                and account_id = #{accountId}
-            </if>
-
-            <if test="type != null">
-                and type = #{type}
-            </if>
-            <if test="useId != null">
-                and use_id = #{useId}
-            </if>
-            <if test="requestTime != null">
-            and request_time = #{requestTime}
-            </if>
-            <if test="state != null">
-                and state = #{state}
-            </if>
-        </where>
-        order by d.create_time desc
-    </select>
 
 </mapper>

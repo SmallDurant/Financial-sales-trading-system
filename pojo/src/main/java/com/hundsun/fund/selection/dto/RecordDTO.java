@@ -1,4 +1,4 @@
-package com.hundsun.fund.transaction.dto;
+package com.hundsun.fund.selection.dto;
 
 import lombok.Data;
 
@@ -10,7 +10,7 @@ import java.time.LocalDate;
  * @date: 2024/04/17
  **/
 @Data
-public class TransactionRecordDTO implements Serializable {
+public class RecordDTO implements Serializable {
 
     // 客户交易账号
     private String account;
