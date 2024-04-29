@@ -30,4 +30,11 @@
         order by d.create_time desc
     </select>
 
+    <select id="getUserPortion" resultType="com.hundsun.fund.selection.vo.PortionVO">
+        select *
+        from tportion
+        where userId = #{userId}
+        order by id asc
+    </select>
+
 </mapper>

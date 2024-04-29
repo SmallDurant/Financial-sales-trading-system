@@ -1,9 +1,9 @@
 package com.hundsun.fund.mapper;
 
 import com.hundsun.fund.transaction.dto.BuyDTO;
+import com.hundsun.fund.transaction.dto.CancelDTO;
 import com.hundsun.fund.transaction.dto.SellDTO;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.math.BigDecimal;
 
@@ -13,6 +13,7 @@ import java.math.BigDecimal;
  **/
 @Mapper
 public interface TransactionMapper {
+    // TODO: SQL编写
 
     @Select("select fund_name from tFund where fund_code = #{fundCode}")
     String getFundNameByFundCode(String fundCode);
@@ -20,11 +21,23 @@ public interface TransactionMapper {
     @Select("select fund_code from tFund where fund_name = #{fundName}")
     String getFundCodeByFundName(String fundName);
 
-    void updateBalance(BigDecimal balance);
+    @Update("")
+    void updateBalance(Long accountId, BigDecimal balance);
 
-    void updateShare(BigDecimal share);
+    @Update("")
+    void updateShare(Long accountId, BigDecimal share);
 
+    @Insert("")
     void addBuyTransactionRecord(BuyDTO buyDTO);
 
+    @Insert("")
     void addSellTransactionRecord(SellDTO sellDTO);
+
+
+    @Delete("")
+    void deleteTransactionRecord(Long requestId);
+
+    @Insert("")
+    void addCancelRecord(CancelDTO cancelDTO);
+
 }

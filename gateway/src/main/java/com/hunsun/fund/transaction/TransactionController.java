@@ -3,6 +3,7 @@ package com.hunsun.fund.transaction;
 import com.hundsun.fund.api.Result;
 import com.hundsun.fund.transaction.TransactionService;
 import com.hundsun.fund.transaction.dto.BuyDTO;
+import com.hundsun.fund.transaction.dto.CancelDTO;
 import com.hundsun.fund.transaction.dto.SellDTO;
 import com.hundsun.fund.transaction.vo.UserInfoVO;
 import com.hundsun.jrescloud.rpc.annotation.CloudReference;
@@ -51,5 +52,12 @@ public class TransactionController {
         return Result.success();
     }
 
+    @DeleteMapping("/cancel/{requestId}")
+    public Result cancelOrder(@PathVariable Long requestId,
+                              @RequestBody CancelDTO cancelDTO){
+        transactionService.cancelOrder(requestId);
+        transactionService.addCancelRecord(cancelDTO);
+        return Result.success();
+    }
 
 }

@@ -3,6 +3,7 @@ package com.hundsun.fund.service;
 import com.hundsun.fund.mapper.TransactionMapper;
 import com.hundsun.fund.transaction.TransactionService;
 import com.hundsun.fund.transaction.dto.BuyDTO;
+import com.hundsun.fund.transaction.dto.CancelDTO;
 import com.hundsun.fund.transaction.dto.SellDTO;
 import com.hundsun.fund.transaction.vo.UserInfoVO;
 import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
@@ -40,17 +41,27 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void buyFund(BuyDTO buyDTO) {
         log.info("用户金额");
-        transactionMapper.updateBalance(buyDTO.getaccountId(), buyDTO.getBalance());
-        transactionMapper.updateShare(buyDTO.getaccountId(), buyDTO.getShare());
+        transactionMapper.updateBalance(buyDTO.getAccountId(), buyDTO.getBalance());
+        transactionMapper.updateShare(buyDTO.getAccountId(), buyDTO.getShare());
         transactionMapper.addBuyTransactionRecord(buyDTO);
 
     }
 
     @Override
     public void sellFund(SellDTO sellDTO) {
-        transactionMapper.updateShare(sellDTO.getaccountId(), sellDTO.getShare());
-        transactionMapper.updateBalance(sellDTO.getaccountId(), sellDTO.getBalance());
+        transactionMapper.updateShare(sellDTO.getAccountId(), sellDTO.getShare());
+        transactionMapper.updateBalance(sellDTO.getAccountId(), sellDTO.getBalance());
         transactionMapper.addSellTransactionRecord(sellDTO);
+    }
+
+    @Override
+    public void cancelOrder(Long requestId) {
+        transactionMapper.deleteTransactionRecord(requestId);
+    }
+
+    @Override
+    public void addCancelRecord(CancelDTO cancelDTO) {
+        transactionMapper.addCancelRecord(cancelDTO);
     }
 
 

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * @author: Dding
@@ -16,4 +17,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SellDTO implements Serializable {
+    // TODO: 待定义
+
+    private Long accountId;
+    private BigDecimal balance;
+    private BigDecimal share;
 }

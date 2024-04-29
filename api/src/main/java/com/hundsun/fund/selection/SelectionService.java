@@ -6,6 +6,8 @@ import com.hundsun.fund.selection.vo.RecordVO;
 import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
 import com.hundsun.jrescloud.rpc.annotation.CloudFunction;
 
+import java.util.List;
+
 /**
  * @author: Dding
  * @date: 2024/04/24
@@ -17,5 +19,5 @@ public interface SelectionService {
     RecordVO getTransactionRecord(RecordDTO recordDTO);
 
     @CloudFunction("getUserPortion")
-    PortionVO getUserPortion(Long userId);
+    List<PortionVO> getUserPortion(Long userId);
 }

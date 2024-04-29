@@ -6,21 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 /**
  * @author: Dding
- * @date: 2024/04/24
+ * @date: 2024/04/29
  **/
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BuyDTO implements Serializable {
-    // TODO: 待定义
-
-    private Long accountId;
-    private BigDecimal balance;
-    private BigDecimal share;
+public class CancelDTO implements Serializable {
+    // TODO: 数据库表字段缺失
 
 }
