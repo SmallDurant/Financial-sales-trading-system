@@ -33,8 +33,8 @@
     <select id="getUserPortion" resultType="com.hundsun.fund.selection.vo.PortionVO">
         select *
         from tportion
-        where userId = #{userId}
-        order by id asc
+        where user_id = #{userId}
+        order by id
     </select>
 
 </mapper>

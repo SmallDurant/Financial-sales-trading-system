@@ -33,4 +33,10 @@ public class SelectionServiceImpl implements SelectionService {
         List<PortionVO> list = selectionMapper.getUserPortion(userId);
         return list;
     }
+
+//    @Override
+//    public RecordVO getBuyRecordByDate(LocalDate date) {
+//
+//        return selectionMapper.getTransactionRecord(recordDTO);
+//    }
 }

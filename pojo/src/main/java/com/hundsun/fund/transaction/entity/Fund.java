@@ -1,9 +1,6 @@
 package com.hundsun.fund.transaction.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -14,9 +11,6 @@ import java.time.LocalDate;
  * @date: 2024/04/17
  **/
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Fund implements Serializable {
     /**
      * 字段描述和说明详见word->表(汇总)

@@ -1,9 +1,6 @@
 package com.hundsun.fund.log.vo;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,9 +10,6 @@ import java.time.LocalDateTime;
  * @date: 2024/04/28
  **/
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class LogRecordVO implements Serializable {
 
     // 柜员id

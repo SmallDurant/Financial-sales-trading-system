@@ -3,8 +3,8 @@ package com.hundsun.fund.selection;
 import com.hundsun.fund.selection.dto.RecordDTO;
 import com.hundsun.fund.selection.vo.PortionVO;
 import com.hundsun.fund.selection.vo.RecordVO;
-import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
 import com.hundsun.jrescloud.rpc.annotation.CloudFunction;
+import com.hundsun.jrescloud.rpc.annotation.CloudService;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * @author: Dding
  * @date: 2024/04/24
  **/
-@CloudComponent
+@CloudService
 public interface SelectionService {
 
     @CloudFunction("getTransactionRecord")

@@ -41,16 +41,16 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void buyFund(BuyDTO buyDTO) {
         log.info("用户金额");
-        transactionMapper.updateBalance(buyDTO.getAccountId(), buyDTO.getBalance());
-        transactionMapper.updateShare(buyDTO.getAccountId(), buyDTO.getShare());
+//        transactionMapper.updateBalance(buyDTO.getAccountId(), buyDTO.getBalance());
+//        transactionMapper.updateShare(buyDTO.getAccountId(), buyDTO.getShare());
         transactionMapper.addBuyTransactionRecord(buyDTO);
 
     }
 
     @Override
     public void sellFund(SellDTO sellDTO) {
-        transactionMapper.updateShare(sellDTO.getAccountId(), sellDTO.getShare());
-        transactionMapper.updateBalance(sellDTO.getAccountId(), sellDTO.getBalance());
+//        transactionMapper.updateShare(sellDTO.getAccountId(), sellDTO.getShare());
+//        transactionMapper.updateBalance(sellDTO.getAccountId(), sellDTO.getBalance());
         transactionMapper.addSellTransactionRecord(sellDTO);
     }
 

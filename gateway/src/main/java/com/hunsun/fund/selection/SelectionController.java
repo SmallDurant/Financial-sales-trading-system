@@ -5,10 +5,7 @@ import com.hundsun.fund.selection.SelectionService;
 import com.hundsun.fund.selection.dto.RecordDTO;
 import com.hundsun.fund.selection.vo.PortionVO;
 import com.hundsun.jrescloud.rpc.annotation.CloudReference;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,12 +20,13 @@ public class SelectionController {
     @CloudReference
     private SelectionService selectionService;
 
-    @RequestMapping("/record")
+    @GetMapping("/record")
     public Result record(@RequestBody RecordDTO recordDTO){
+        // TODO: 数组返回
         return Result.success(selectionService.getTransactionRecord(recordDTO));
     }
 
-    @RequestMapping("/portion/{userId}")
+    @GetMapping("/portion/{userId}")
     public Result portion(@PathVariable Long userId){
         List<PortionVO> list = selectionService.getUserPortion(userId);
         return Result.success(list);

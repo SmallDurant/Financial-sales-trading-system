@@ -1,8 +1,8 @@
 package com.hundsun.fund.log;
 
 import com.hundsun.fund.log.vo.LogRecordVO;
-import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
 import com.hundsun.jrescloud.rpc.annotation.CloudFunction;
+import com.hundsun.jrescloud.rpc.annotation.CloudService;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  * @author: Dding
  * @date: 2024/04/28
  **/
-@CloudComponent
+@CloudService
 public interface LogService {
     @CloudFunction("getLogRecord")
     List<LogRecordVO> getLogRecord(Long start, Long size);

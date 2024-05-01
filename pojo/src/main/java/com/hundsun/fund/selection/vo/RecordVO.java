@@ -1,9 +1,6 @@
 package com.hundsun.fund.selection.vo;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,9 +10,6 @@ import java.time.LocalDateTime;
  * @date: 2024/04/17
  **/
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class RecordVO implements Serializable {
 
     // 基金代码

@@ -4,14 +4,14 @@ import com.hundsun.fund.transaction.dto.BuyDTO;
 import com.hundsun.fund.transaction.dto.CancelDTO;
 import com.hundsun.fund.transaction.dto.SellDTO;
 import com.hundsun.fund.transaction.vo.UserInfoVO;
-import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
 import com.hundsun.jrescloud.rpc.annotation.CloudFunction;
+import com.hundsun.jrescloud.rpc.annotation.CloudService;
 
 /**
  * @author: Dding
  * @date: 2024/04/24
  **/
-@CloudComponent
+@CloudService
 public interface TransactionService {
 
     @CloudFunction("getUserInfoByUserId")

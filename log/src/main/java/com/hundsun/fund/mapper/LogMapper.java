@@ -19,11 +19,13 @@ public interface LogMapper {
     @Select("select * from tlog limit #{start}, #{size}")
     List<LogRecordVO> getLogRecord(@Param("start") Long start, @Param("size") Long size);
 
-    @Insert("insert into tlog (employ_id, type, detail, time) values (#{EmployeeId}, #{type}, #{detail}, #{time})")
+    @Insert("insert into tlog (employee_id, type, detail, time) values (#{EmployeeId}, #{type}, #{detail}, #{time})")
     void addLogRecord(@Param("EmployeeId") Long EmployeeId,
                       @Param("type") Integer type,
                       @Param("detail") String detail,
                       @Param("time") LocalDateTime time);
+
+
 
 
 }

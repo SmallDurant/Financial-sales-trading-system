@@ -47,7 +47,9 @@ public class JwtFilter extends BasicHttpAuthenticationFilter implements Filter {
         JwtToken jwtToken = new JwtToken(token);
         // 提交给realm进行登入，如果错误他会抛出异常并被捕获
         try {
-            getSubject(request, response).login(jwtToken);
+            // TODO: 解除注释
+            // getSubject(request, response).login(jwtToken);
+
             // 如果没有抛出异常则代表登入成功，返回true
             return true;
         } catch (AuthenticationException e) {

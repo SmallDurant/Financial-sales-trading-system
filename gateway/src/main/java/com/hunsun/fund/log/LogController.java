@@ -4,9 +4,11 @@ import com.hundsun.fund.api.Result;
 import com.hundsun.fund.log.LogService;
 import com.hundsun.fund.log.vo.LogRecordVO;
 import com.hundsun.jrescloud.rpc.annotation.CloudReference;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -27,7 +29,7 @@ public class LogController {
     }
 
     // @PostMapping("/addRecord")
-    public void addRecord(Long EmployeeId, Integer type, String detail, LocalDateTime time){
-        logService.AddLogRecord(EmployeeId, type, detail, time);
-    }
+//    public void addRecord(Long EmployeeId, Integer type, String detail, LocalDateTime time){
+//        logService.AddLogRecord(EmployeeId, type, detail, time);
+//    }
 }
