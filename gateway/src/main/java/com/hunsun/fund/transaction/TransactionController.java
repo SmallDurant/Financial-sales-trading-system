@@ -1,6 +1,7 @@
 package com.hunsun.fund.transaction;
 
 import com.hundsun.fund.api.Result;
+import com.hundsun.fund.log.LogService;
 import com.hundsun.fund.transaction.TransactionService;
 import com.hundsun.fund.transaction.dto.BuyDTO;
 import com.hundsun.fund.transaction.dto.CancelDTO;
@@ -21,6 +22,9 @@ public class TransactionController {
     @CloudReference
     private TransactionService transactionService;
 
+    @CloudReference
+    private LogService logService;
+
     @GetMapping("/getNameByCode/{fundCode}")
     public Result getFundNameByFundCode(@PathVariable String fundCode){
         String fundName = transactionService.getFundNameByFundCode(fundCode);
@@ -35,8 +39,11 @@ public class TransactionController {
 
     @GetMapping("/getUserInfo/{userId}")
     public Result getUserInfoByUserId(@PathVariable Long userId){
-        UserInfoVO userInfoVO = transactionService.getUserInfoByUserId(userId);
-        return Result.success();
+        UserInfoVO userInfoVO = new UserInfoVO();
+        userInfoVO.setName(transactionService.getUserNameByUserId(userId));
+        userInfoVO.setBalance(transactionService.getUserBalanceByUserId(userId));
+        userInfoVO.setStatus(transactionService.getUserStatusByUserId(userId));
+        return Result.success(userInfoVO);
     }
 
 
@@ -54,10 +61,9 @@ public class TransactionController {
     }
 
     @DeleteMapping("/cancel/{requestId}")
-    public Result cancelOrder(@PathVariable Long requestId,
-                              @RequestBody CancelDTO cancelDTO){
+    public Result cancelOrder(@PathVariable Long requestId){
         transactionService.cancelOrder(requestId);
-        transactionService.addCancelRecord(cancelDTO);
+        transactionService.addCancelRecord(requestId);
         return Result.success();
     }
 

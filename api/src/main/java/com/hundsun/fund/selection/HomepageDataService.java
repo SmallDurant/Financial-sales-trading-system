@@ -1,7 +1,10 @@
 package com.hundsun.fund.selection;
 
+import com.hundsun.fund.selection.vo.HistoryDataVO;
 import com.hundsun.jrescloud.rpc.annotation.CloudFunction;
 import com.hundsun.jrescloud.rpc.annotation.CloudService;
+
+import java.util.List;
 
 /**
  * @author: Dding
@@ -27,5 +30,14 @@ public interface HomepageDataService {
 
     @CloudFunction("getFundNum")
     Integer getFundNum();
+
+    @CloudFunction("getBuyHistoryNum")
+    List<HistoryDataVO> getBuyHistoryNum();
+
+    @CloudFunction("getSellHistoryNum")
+    List<HistoryDataVO> getSellHistoryNum();
+
+    @CloudFunction("getCancelHistoryNum")
+    List<HistoryDataVO> getCancelHistoryNum();
 
 }

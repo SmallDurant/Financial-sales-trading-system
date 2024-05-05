@@ -11,10 +11,20 @@ import java.math.BigDecimal;
  **/
 @Data
 public class BuyDTO implements Serializable {
-    // TODO: 待定义
 
-    private Long accountId;
-    private BigDecimal balance;
-    private BigDecimal share;
+    // 客户账号ID
+    Long account;
+
+    // 交易的账号类型
+    Long type;
+
+    // 基金代码
+    String fundCode;
+
+    // 基金名称
+    String fundName;
+
+    // 申购金额
+    BigDecimal amount;
 
 }

@@ -2,11 +2,13 @@ package com.hundsun.fund.service;
 
 import com.hundsun.fund.mapper.HomepageDataMapper;
 import com.hundsun.fund.selection.HomepageDataService;
+import com.hundsun.fund.selection.vo.HistoryDataVO;
 import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author: Dding
@@ -52,5 +54,20 @@ public class HomepageDataServiceImpl implements HomepageDataService {
     @Override
     public Integer getFundNum() {
         return homepageDataMapper.getFundNum();
+    }
+
+    @Override
+    public List<HistoryDataVO> getBuyHistoryNum() {
+        return homepageDataMapper.getBuyHistoryNum();
+    }
+
+    @Override
+    public List<HistoryDataVO> getSellHistoryNum() {
+        return homepageDataMapper.getSellHistoryNum();
+    }
+
+    @Override
+    public List<HistoryDataVO> getCancelHistoryNum() {
+        return homepageDataMapper.getCancelHistoryNum();
     }
 }

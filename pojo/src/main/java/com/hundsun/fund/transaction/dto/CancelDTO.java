@@ -3,6 +3,7 @@ package com.hundsun.fund.transaction.dto;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @author: Dding
@@ -10,6 +11,17 @@ import java.io.Serializable;
  **/
 @Data
 public class CancelDTO implements Serializable {
-    // TODO: 数据库表字段缺失
+
+    // 撤单id
+    Long cancellationId;
+
+    // 用户id
+    Long userId;
+
+    // 请求id
+    Long requestId;
+
+    // 撤单时间
+    LocalDateTime time;
 
 }

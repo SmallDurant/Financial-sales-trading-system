@@ -1,11 +1,11 @@
 package com.hundsun.fund.transaction;
 
 import com.hundsun.fund.transaction.dto.BuyDTO;
-import com.hundsun.fund.transaction.dto.CancelDTO;
 import com.hundsun.fund.transaction.dto.SellDTO;
-import com.hundsun.fund.transaction.vo.UserInfoVO;
 import com.hundsun.jrescloud.rpc.annotation.CloudFunction;
 import com.hundsun.jrescloud.rpc.annotation.CloudService;
+
+import java.math.BigDecimal;
 
 /**
  * @author: Dding
@@ -14,8 +14,15 @@ import com.hundsun.jrescloud.rpc.annotation.CloudService;
 @CloudService
 public interface TransactionService {
 
-    @CloudFunction("getUserInfoByUserId")
-    UserInfoVO getUserInfoByUserId(Long userId);
+    @CloudFunction("getUserNameByUserId")
+    String getUserNameByUserId(Long userId);
+
+    @CloudFunction("getUserBalanceByUserId")
+    BigDecimal getUserBalanceByUserId(Long userId);
+
+    @CloudFunction("getUserStatusByUserId")
+    Integer getUserStatusByUserId(Long userId);
+
 
     @CloudFunction("getFundNameByFundCode")
     String getFundNameByFundCode(String fundCode);
@@ -35,7 +42,7 @@ public interface TransactionService {
 
     // TODO: 撤单相关逻辑
     @CloudFunction("addCancelRecord")
-    void addCancelRecord(CancelDTO cancelDTO);
+    void addCancelRecord(Long requestId);
 
 
 }

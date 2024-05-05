@@ -3,13 +3,13 @@ package com.hundsun.fund.service;
 import com.hundsun.fund.mapper.TransactionMapper;
 import com.hundsun.fund.transaction.TransactionService;
 import com.hundsun.fund.transaction.dto.BuyDTO;
-import com.hundsun.fund.transaction.dto.CancelDTO;
 import com.hundsun.fund.transaction.dto.SellDTO;
-import com.hundsun.fund.transaction.vo.UserInfoVO;
 import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 /**
  * @author: Dding
@@ -23,9 +23,18 @@ public class TransactionServiceImpl implements TransactionService {
     private TransactionMapper transactionMapper;
 
     @Override
-    public UserInfoVO getUserInfoByUserId(Long userId) {
-        // TODO:待确定
-        return null;
+    public String getUserNameByUserId(Long userId) {
+        return transactionMapper.getUserNameByUserId(userId);
+    }
+
+    @Override
+    public BigDecimal getUserBalanceByUserId(Long userId) {
+        return transactionMapper.getUserBalanceByUserId(userId);
+    }
+
+    @Override
+    public Integer getUserStatusByUserId(Long userId) {
+        return transactionMapper.getUserStatusByUserId(userId);
     }
 
     @Override
@@ -40,18 +49,33 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public void buyFund(BuyDTO buyDTO) {
-        log.info("用户金额");
-//        transactionMapper.updateBalance(buyDTO.getAccountId(), buyDTO.getBalance());
-//        transactionMapper.updateShare(buyDTO.getAccountId(), buyDTO.getShare());
-        transactionMapper.addBuyTransactionRecord(buyDTO);
+        Integer fundRisk = transactionMapper.getFundRiskByFundCode(buyDTO.getFundCode());
+        Integer userRisk = transactionMapper.getUserRiskByAccount(buyDTO.getAccount());
+        BigDecimal balance = transactionMapper.getUserBalanceByAccount(buyDTO.getAccount());
+        Long userId = transactionMapper.getUserIdByAccount(buyDTO.getAccount());
+
+        if(fundRisk < userRisk){
+            if(buyDTO.getAmount().compareTo(balance) < 0){
+                transactionMapper.updateBalance(buyDTO.getAccount(), buyDTO.getAmount());
+                // TODO: 调用更新持仓接口 updatePositionPortion updatePositionFrozenPortion
+                transactionMapper.addBuyTransactionRecord(userId, buyDTO.getAccount(), 0, buyDTO.getFundCode(), buyDTO.getFundName(), buyDTO.getAmount(), LocalDateTime.now(), 2);
+            }else {
+                throw new RuntimeException("余额不足");
+            }
+        }else {
+            throw new RuntimeException("风险等级不够");
+        }
+
+
 
     }
 
     @Override
     public void sellFund(SellDTO sellDTO) {
-//        transactionMapper.updateShare(sellDTO.getAccountId(), sellDTO.getShare());
-//        transactionMapper.updateBalance(sellDTO.getAccountId(), sellDTO.getBalance());
-        transactionMapper.addSellTransactionRecord(sellDTO);
+        Long userId = transactionMapper.getUserIdByAccount(sellDTO.getAccount());
+
+        // TODO: 调用更新持仓接口 updatePositionPortion
+        transactionMapper.addSellTransactionRecord(userId, sellDTO.getAccount(), 1, sellDTO.getFundCode(), sellDTO.getFundName(), sellDTO.getAmount(), LocalDateTime.now(), 2);
     }
 
     @Override
@@ -60,8 +84,9 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public void addCancelRecord(CancelDTO cancelDTO) {
-        transactionMapper.addCancelRecord(cancelDTO);
+    public void addCancelRecord(Long requestId) {
+        Long userId = transactionMapper.getUserIdByRequestId(requestId);
+        transactionMapper.addCancelRecord(userId ,requestId, LocalDateTime.now());
     }
 
 

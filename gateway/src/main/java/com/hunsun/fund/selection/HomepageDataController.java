@@ -48,5 +48,20 @@ public class HomepageDataController {
         return Result.success(homepageDataService.getFundNum());
     }
 
-    // TODO: 订单统计接口
+    @GetMapping("/buyHistory")
+    public Result getBuyHistoryNum(){
+        return Result.success(homepageDataService.getBuyHistoryNum());
+    }
+
+    @GetMapping("/sellHistory")
+    public Result getSellHistoryNum(){
+        return Result.success(homepageDataService.getSellHistoryNum());
+    }
+
+    @GetMapping("/cancelHistory")
+    public Result getCancelHistoryNum(){
+        return Result.success(homepageDataService.getCancelHistoryNum());
+    }
+
+
 }
