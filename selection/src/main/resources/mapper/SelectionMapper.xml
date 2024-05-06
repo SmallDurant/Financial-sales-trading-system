@@ -4,7 +4,7 @@
 <mapper namespace="com.hundsun.fund.mapper.SelectionMapper">
 
     <select id="getTransactionRecord" resultType="com.hundsun.fund.selection.vo.RecordVO">
-        select fund_id, account_id, type, use_id, request_time, state
+        select *
         from trequest
         <where>
             <if test="fundId != null">
@@ -13,21 +13,11 @@
             <if test="accountId != null">
                 and account_id = #{accountId}
             </if>
-
-            <if test="type != null">
-                and type = #{type}
-            </if>
-            <if test="useId != null">
-                and use_id = #{useId}
-            </if>
-            <if test="requestTime != null">
-            and request_time = #{requestTime}
-            </if>
-            <if test="state != null">
-                and state = #{state}
+            <if test="startDateTime != null and endDateTime != null">
+                and time between #{startDateTime} and #{endDateTime}
             </if>
         </where>
-        order by d.create_time desc
+        order by request_id asc
     </select>
 
     <select id="getUserPortion" resultType="com.hundsun.fund.selection.vo.PortionVO">

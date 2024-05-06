@@ -4,7 +4,7 @@ app:
   server:
     port: 8090
   registry:
-    address: localhost:2181
+    address: 10.131.134.219:2181
 
 spring:
   datasource:

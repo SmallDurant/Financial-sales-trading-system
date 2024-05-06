@@ -26,8 +26,19 @@ public class SelectionController {
 
     @GetMapping("/record")
     public Result record(@RequestBody RecordDTO recordDTO){
-        // TODO: 数组返回
         return Result.success(selectionService.getTransactionRecord(recordDTO));
+    }
+
+    @PutMapping("/confirmRecord")
+    public Result confirmRecord(@RequestParam Long requestId){
+        selectionService.updateStateByRequestId(requestId, 2);
+        return Result.success();
+    }
+
+    @PutMapping("/rejectRecord")
+    public Result rejectRecord(@RequestParam Long requestId){
+        selectionService.updateStateByRequestId(requestId, 4);
+        return Result.success();
     }
 
     @GetMapping("/portion/{userId}")

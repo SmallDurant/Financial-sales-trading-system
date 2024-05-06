@@ -4,7 +4,6 @@ import com.hundsun.fund.api.Result;
 import com.hundsun.fund.log.LogService;
 import com.hundsun.fund.transaction.TransactionService;
 import com.hundsun.fund.transaction.dto.BuyDTO;
-import com.hundsun.fund.transaction.dto.CancelDTO;
 import com.hundsun.fund.transaction.dto.SellDTO;
 import com.hundsun.fund.transaction.vo.UserInfoVO;
 import com.hundsun.jrescloud.rpc.annotation.CloudReference;

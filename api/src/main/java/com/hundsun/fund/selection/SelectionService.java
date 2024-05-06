@@ -19,7 +19,10 @@ import java.util.List;
 public interface SelectionService {
 
     @CloudFunction("getTransactionRecord")
-    RecordVO getTransactionRecord(RecordDTO recordDTO);
+    List<RecordVO> getTransactionRecord(RecordDTO recordDTO);
+
+    @CloudFunction("updateStateByRequestId")
+    void updateStateByRequestId(Long requestId, Integer state);
 
     @CloudFunction("getUserPortion")
     List<PortionVO> getUserPortion(Long userId);

@@ -1,9 +1,6 @@
 package com.hundsun.fund.mapper;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,7 +11,6 @@ import java.time.LocalDateTime;
  **/
 @Mapper
 public interface TransactionMapper {
-    // TODO: SQL编写
 
     @Select("select name from tuser where user_id = #{userId}")
     String getUserNameByUserId(Long userId);
@@ -41,27 +37,27 @@ public interface TransactionMapper {
     BigDecimal getUserBalanceByAccount(Long account);
 
     @Select("select user_id from tuser where account = #{account}")
-    Long getUserIdByAccount(Long account);
+    Long getUserIdByAccount(@Param("account") Long account);
 
     @Update("update taccount set balance = balance - #{amount} where account_id = #{account}")
-    void updateBalance(Long account, BigDecimal amount);
+    void updateBalance(@Param("account") Long account,@Param("amount") BigDecimal amount);
 
     @Insert("insert into trequest(user_id, account_id, type, fund_id, fund_name, amount, time, state) " +
             "values (#{userId}, #{accountId}, #{type}, #{fundCode}, #{fundName}, #{amount}, #{time}, #{state})")
-    void addBuyTransactionRecord(Long userId, Long accountId, Integer type, String fundCode, String fundName, BigDecimal amount, LocalDateTime time, Integer state);
+    void addBuyTransactionRecord(@Param("userId") Long userId,@Param("accountId") Long accountId,@Param("type") Integer type,@Param("fundCode") String fundCode,@Param("fundName") String fundName,@Param("amount") BigDecimal amount,@Param("time") LocalDateTime time,@Param("state") Integer state);
 
     @Insert("insert into trequest(user_id, account_id, type, fund_id, fund_name, amount, time, state) " +
             "values (#{userId}, #{accountId}, #{type}, #{fundCode}, #{fundName}, #{amount}, #{time}, #{state})")
-    void addSellTransactionRecord(Long userId, Long accountId, Integer type, String fundCode, String fundName, BigDecimal amount, LocalDateTime time, Integer state);
+    void addSellTransactionRecord(@Param("userId") Long userId,@Param("accountId") Long accountId,@Param("type") Integer type,@Param("fundCode") String fundCode,@Param("fundName") String fundName,@Param("amount") BigDecimal amount,@Param("time") LocalDateTime time,@Param("state") Integer state);
 
 
     @Update("update trequest set state = 3 where request_id = #{requestId}")
-    void deleteTransactionRecord(Long requestId);
+    void deleteTransactionRecord(@Param("requestId") Long requestId);
 
     @Select("select user_id from trequest where request_id = #{requestId}")
-    Long getUserIdByRequestId(Long requestId);
+    Long getUserIdByRequestId(@Param("requestId") Long requestId);
 
-    @Insert("insert into tcancellation(user_id, request_id, time) values (#{userId}, #{requestId}, #{time})")
-    void addCancelRecord(Long userId, Long requestId, LocalDateTime time);
+    @Insert("insert into tcancellation(cancellation_id, user_id, request_id, time) values (#{cancellationId} ,#{userId}, #{requestId}, #{time})")
+    void addCancelRecord(@Param("cancellationId") Long cancellationId,@Param("userId") Long userId,@Param("requestId") Long requestId,@Param("time") LocalDateTime time);
 
 }

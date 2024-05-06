@@ -26,9 +26,15 @@ public class SelectionServiceImpl implements SelectionService {
     private SelectionMapper selectionMapper;
 
     @Override
-    public RecordVO getTransactionRecord(RecordDTO recordDTO) {
+    public List<RecordVO> getTransactionRecord(RecordDTO recordDTO) {
+        Long fundId = selectionMapper.getFundIdByFundCode(recordDTO.getFundCode());
         log.info("查询交易记录");
-        return selectionMapper.getTransactionRecord(recordDTO);
+        return selectionMapper.getTransactionRecord(recordDTO.getAccountId(), fundId, recordDTO.getStartDateTime(), recordDTO.getEndDateTime());
+    }
+
+    @Override
+    public void updateStateByRequestId(Long requestId, Integer state) {
+        selectionMapper.updateStateByRequestId(requestId, state);
     }
 
     @Override
@@ -39,11 +45,22 @@ public class SelectionServiceImpl implements SelectionService {
 
     @Override
     public List<BuyRecordVO> getBuyRecordByDate(LocalDate date) {
-        // TODO: 判断周几
-        return selectionMapper.getBuyRecord(date);
+        if(date.getDayOfWeek().getValue() == 1){
+            return selectionMapper.getBuyRecord_1(date);
+        }else if(date.getDayOfWeek().getValue() == 2){
+            return selectionMapper.getBuyRecord_2(date);
+        }else{
+            return selectionMapper.getBuyRecord(date);
+        }
     }
     @Override
     public List<SellRecordVO> getSellRecordByDate(LocalDate date) {
-        return selectionMapper.getSellRecord(date);
+        if(date.getDayOfWeek().getValue() == 1){
+            return selectionMapper.getSellRecord_1(date);
+        }else if(date.getDayOfWeek().getValue() == 2){
+            return selectionMapper.getSellRecord_2(date);
+        }else{
+            return selectionMapper.getSellRecord(date);
+        }
     }
 }

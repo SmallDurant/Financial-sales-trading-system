@@ -3,6 +3,7 @@ package com.hundsun.fund.selection.vo;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -11,22 +12,35 @@ import java.time.LocalDateTime;
  **/
 @Data
 public class RecordVO implements Serializable {
+    // TODO: 待修改
 
-    // 基金代码
-    private String fundCode;
+    // 交易申请编号
+    private Long requestId;
+
+    // 用户ID
+    private Long userId;
+
+    // 账户ID
+    private Long accountId;
+
+    // 交易类型
+    private Integer type;
+
+    // 基金ID
+    private Integer fundId;
+
+    // 基金名称
+    private String fundName;
+
+    // 交易数量
+    private BigDecimal amount;
 
     // 客户交易账号
     private String account;
 
-    // 客户类型
-    private boolean customerType;
-
-    // 客户名称
-    private String name;
-
-    // 交易申请编号
-    private Integer requestId;
-
     // 申请时间
     private LocalDateTime time;
+
+    // 交易状态
+    private Integer state;
 }

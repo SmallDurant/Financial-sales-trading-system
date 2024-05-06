@@ -39,8 +39,6 @@ public interface TransactionService {
     @CloudFunction("cancelOrder")
     void cancelOrder(Long requestId);
 
-
-    // TODO: 撤单相关逻辑
     @CloudFunction("addCancelRecord")
     void addCancelRecord(Long requestId);
 

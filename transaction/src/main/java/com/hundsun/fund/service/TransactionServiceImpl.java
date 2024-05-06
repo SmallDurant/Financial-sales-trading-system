@@ -6,10 +6,12 @@ import com.hundsun.fund.transaction.dto.BuyDTO;
 import com.hundsun.fund.transaction.dto.SellDTO;
 import com.hundsun.jrescloud.rpc.annotation.CloudComponent;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author: Dding
@@ -18,6 +20,8 @@ import java.time.LocalDateTime;
 @CloudComponent
 @Slf4j
 public class TransactionServiceImpl implements TransactionService {
+
+    private static final AtomicLong id = new AtomicLong();
 
     @Resource
     private TransactionMapper transactionMapper;
@@ -75,18 +79,18 @@ public class TransactionServiceImpl implements TransactionService {
         Long userId = transactionMapper.getUserIdByAccount(sellDTO.getAccount());
 
         // TODO: 调用更新持仓接口 updatePositionPortion
-        transactionMapper.addSellTransactionRecord(userId, sellDTO.getAccount(), 1, sellDTO.getFundCode(), sellDTO.getFundName(), sellDTO.getAmount(), LocalDateTime.now(), 2);
+        transactionMapper.addSellTransactionRecord(userId, sellDTO.getAccount(), 0, sellDTO.getFundCode(), sellDTO.getFundName(), sellDTO.getAmount(), LocalDateTime.now(), 2);
     }
 
     @Override
-    public void cancelOrder(Long requestId) {
+    public void cancelOrder(@Param("requestId") Long requestId) {
         transactionMapper.deleteTransactionRecord(requestId);
     }
 
     @Override
     public void addCancelRecord(Long requestId) {
         Long userId = transactionMapper.getUserIdByRequestId(requestId);
-        transactionMapper.addCancelRecord(userId ,requestId, LocalDateTime.now());
+        transactionMapper.addCancelRecord(id.incrementAndGet() , userId ,requestId, LocalDateTime.now());
     }
 
 

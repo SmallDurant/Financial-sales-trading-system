@@ -3,7 +3,7 @@ package com.hundsun.fund.selection.dto;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author: Dding
@@ -13,16 +13,10 @@ import java.time.LocalDate;
 public class RecordDTO implements Serializable {
 
     // 客户交易账号
-    private String account;
+    private Long accountId;
 
     // 基金代码
     private String fundCode;
-
-    // 申请日期(起始)
-    private LocalDate startDate;
-
-    // 申请日期(终止)
-    private LocalDate endDate;
 
     // 基金名称
     private String fundName;
@@ -30,7 +24,10 @@ public class RecordDTO implements Serializable {
     // 基金类型
     private Integer fundType;
 
-    // 资金方式
-    // private Integer chargeWay;
-    // TODO: 是不是ui搞错了, 没有这个字段
+    // 申请日期(起始)
+    private LocalDateTime startDateTime;
+
+    // 申请日期(终止)
+    private LocalDateTime endDateTime;
+
 }
