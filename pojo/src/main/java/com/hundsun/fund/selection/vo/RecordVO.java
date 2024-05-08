@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
  **/
 @Data
 public class RecordVO implements Serializable {
-    // TODO: 待修改
 
     // 交易申请编号
     private Long requestId;
@@ -27,16 +26,13 @@ public class RecordVO implements Serializable {
     private Integer type;
 
     // 基金ID
-    private Integer fundId;
+    private Long fundId;
 
     // 基金名称
     private String fundName;
 
     // 交易数量
     private BigDecimal amount;
-
-    // 客户交易账号
-    private String account;
 
     // 申请时间
     private LocalDateTime time;

@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -26,9 +27,12 @@ public interface SelectionMapper {
     List<RecordVO> getTransactionRecord(@Param("accountId") Long accountId,@Param("fundId") Long fundId,@Param("startDateTime") LocalDateTime startDateTime,@Param("endDateTime") LocalDateTime endDateTime);
 
     @Update("update trequest set state = #{state} where request_id = #{requestId}")
-    void updateStateByRequestId(@Param("requestId") Long requestId,@Param("state") Integer state)
+    void updateStateByRequestId(@Param("requestId") Long requestId,@Param("state") Integer state);
 
     List<PortionVO> getUserPortion(@Param("userId") Long userId);
+
+    @Update("update taccount set balance = balance - #{amount} where account_id = #{account}")
+    void updateBalance(@Param("account") Long account,@Param("amount") BigDecimal amount);
 
     @Select("select fund_id, user_id, account_id, amount from trequest " +
             "where type = 0 and " +

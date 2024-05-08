@@ -24,7 +24,7 @@ public class SelectionController {
     @CloudReference
     private SelectionService selectionService;
 
-    @GetMapping("/record")
+    @PostMapping("/record")
     public Result record(@RequestBody RecordDTO recordDTO){
         return Result.success(selectionService.getTransactionRecord(recordDTO));
     }
@@ -32,6 +32,7 @@ public class SelectionController {
     @PutMapping("/confirmRecord")
     public Result confirmRecord(@RequestParam Long requestId){
         selectionService.updateStateByRequestId(requestId, 2);
+        // selectionService.updateBalanceAndPortion();
         return Result.success();
     }
 

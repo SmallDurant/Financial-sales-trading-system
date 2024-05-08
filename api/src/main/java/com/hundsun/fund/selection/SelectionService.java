@@ -24,6 +24,9 @@ public interface SelectionService {
     @CloudFunction("updateStateByRequestId")
     void updateStateByRequestId(Long requestId, Integer state);
 
+    @CloudFunction("updateBalanceAndPortion")
+    void updateBalanceAndPortion();
+
     @CloudFunction("getUserPortion")
     List<PortionVO> getUserPortion(Long userId);
 

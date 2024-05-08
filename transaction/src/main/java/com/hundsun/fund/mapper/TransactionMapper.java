@@ -12,29 +12,41 @@ import java.time.LocalDateTime;
 @Mapper
 public interface TransactionMapper {
 
+    @Select("select purchase_rate from tfund where fund_code = #{fundCode}")
+    BigDecimal getPurchaseRateByFundCode(@Param("fundCode") String fundCode);
+
+    @Select("select nav from tfund where fund_code = #{fundCode}")
+    BigDecimal getNavByFundCode(@Param("fundCode") String fundCode);
+
+    @Select("select fund_id from tfund where fund_code = #{fundCode}")
+    Long getFundIdByFundCode(@Param("fundCode") String fundCode);
+
+    @Update("update tportion set frozen_portion = frozen_portion + #{portion} where user_id = #{userId} and account_id = #{accountId} and fund_id = #{fundId}")
+    void updatePositionFrozenPortion(@Param("userId") Long userId, @Param("accountId") Long accountId, @Param("fundId") Long fundId, @Param("portion") BigDecimal portion);
+
     @Select("select name from tuser where user_id = #{userId}")
-    String getUserNameByUserId(Long userId);
+    String getUserNameByUserId(@Param("userId") Long userId);
 
     @Select("select balance from taccount where user_id = #{userId}")
-    BigDecimal getUserBalanceByUserId(Long userId);
+    BigDecimal getUserBalanceByUserId(@Param("userId") Long userId);
 
     @Select("select status from taccount where user_id = #{userId}")
-    Integer getUserStatusByUserId(Long userId);
+    Integer getUserStatusByUserId(@Param("userId") Long userId);
 
     @Select("select fund_name from tfund where fund_code = #{fundCode}")
-    String getFundNameByFundCode(String fundCode);
+    String getFundNameByFundCode(@Param("fundCode") String fundCode);
 
     @Select("select fund_code from tfund where fund_name = #{fundName}")
-    String getFundCodeByFundName(String fundName);
+    String getFundCodeByFundName(@Param("fundName") String fundName);
 
     @Select("select fund_risk from tfund where fund_code = #{fundCode}")
-    Integer getFundRiskByFundCode(String fundCode);
+    Integer getFundRiskByFundCode(@Param("fundCode") String fundCode);
 
     @Select("select risk_profile from tuser where account = #{account}")
-    Integer getUserRiskByAccount(Long account);
+    Integer getUserRiskByAccount(@Param("account") Long account);
 
     @Select("select balance from taccount where account_id = #{account}")
-    BigDecimal getUserBalanceByAccount(Long account);
+    BigDecimal getUserBalanceByAccount(@Param("account") Long account);
 
     @Select("select user_id from tuser where account = #{account}")
     Long getUserIdByAccount(@Param("account") Long account);

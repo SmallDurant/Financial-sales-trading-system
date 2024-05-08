@@ -54,15 +54,18 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void buyFund(BuyDTO buyDTO) {
         Integer fundRisk = transactionMapper.getFundRiskByFundCode(buyDTO.getFundCode());
-        Integer userRisk = transactionMapper.getUserRiskByAccount(buyDTO.getAccount());
-        BigDecimal balance = transactionMapper.getUserBalanceByAccount(buyDTO.getAccount());
-        Long userId = transactionMapper.getUserIdByAccount(buyDTO.getAccount());
+        Integer userRisk = transactionMapper.getUserRiskByAccount(buyDTO.getAccountId());
+        BigDecimal balance = transactionMapper.getUserBalanceByAccount(buyDTO.getAccountId());
+        Long userId = transactionMapper.getUserIdByAccount(buyDTO.getAccountId());
+        BigDecimal purchaseRate = transactionMapper.getPurchaseRateByFundCode(buyDTO.getFundCode());
+        BigDecimal nav = transactionMapper.getNavByFundCode(buyDTO.getFundCode());
+        Long fundId = transactionMapper.getFundIdByFundCode(buyDTO.getFundCode());
 
         if(fundRisk < userRisk){
             if(buyDTO.getAmount().compareTo(balance) < 0){
-                transactionMapper.updateBalance(buyDTO.getAccount(), buyDTO.getAmount());
-                // TODO: 调用更新持仓接口 updatePositionPortion updatePositionFrozenPortion
-                transactionMapper.addBuyTransactionRecord(userId, buyDTO.getAccount(), 0, buyDTO.getFundCode(), buyDTO.getFundName(), buyDTO.getAmount(), LocalDateTime.now(), 2);
+                transactionMapper.updateBalance(buyDTO.getAccountId(), buyDTO.getAmount().add(buyDTO.getAmount().multiply(purchaseRate)));
+                transactionMapper.updatePositionFrozenPortion(userId, buyDTO.getAccountId(), fundId , buyDTO.getAmount().divide(nav,2, BigDecimal.ROUND_HALF_UP));
+                transactionMapper.addBuyTransactionRecord(userId, buyDTO.getAccountId(), 0, buyDTO.getFundCode(), buyDTO.getFundName(), buyDTO.getAmount(), LocalDateTime.now(), 2);
             }else {
                 throw new RuntimeException("余额不足");
             }
@@ -76,10 +79,8 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public void sellFund(SellDTO sellDTO) {
-        Long userId = transactionMapper.getUserIdByAccount(sellDTO.getAccount());
-
-        // TODO: 调用更新持仓接口 updatePositionPortion
-        transactionMapper.addSellTransactionRecord(userId, sellDTO.getAccount(), 0, sellDTO.getFundCode(), sellDTO.getFundName(), sellDTO.getAmount(), LocalDateTime.now(), 2);
+        Long userId = transactionMapper.getUserIdByAccount(sellDTO.getAccountId());
+        transactionMapper.addSellTransactionRecord(userId, sellDTO.getAccountId(), 0, sellDTO.getFundCode(), sellDTO.getFundName(), sellDTO.getAmount(), LocalDateTime.now(), 2);
     }
 
     @Override

@@ -13,13 +13,13 @@ import java.math.BigDecimal;
 public class BuyRecordVO implements Serializable {
 
     // 基金ID
-    private String fundId;
+    private Long fundId;
 
     // 账户ID
-    private String accountId;
+    private Long accountId;
 
     // 客户ID
-    private String userId;
+    private Long userId;
 
     // 购买金额
     private BigDecimal amount;

@@ -38,6 +38,13 @@ public class SelectionServiceImpl implements SelectionService {
     }
 
     @Override
+    public void updateBalanceAndPortion() {
+        // selectionMapper.updateBalance(buyDTO.getAccountId(), buyDTO.getAmount());
+        // 调用更新持仓接口 updatePositionPortion updatePositionFrozenPortion
+        // 净值计算、申购费率计算
+    }
+
+    @Override
     public List<PortionVO> getUserPortion(Long userId) {
         List<PortionVO> list = selectionMapper.getUserPortion(userId);
         return list;

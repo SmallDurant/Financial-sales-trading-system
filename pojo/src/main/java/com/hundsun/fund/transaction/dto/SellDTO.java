@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class SellDTO implements Serializable {
 
     // 客户账号ID
-    Long account;
+    Long accountId;
 
     // 交易的账号类型
     Long type;

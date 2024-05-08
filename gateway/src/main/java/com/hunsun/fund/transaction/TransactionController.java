@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/transaction")
 public class TransactionController {
-    // TODO: 申购赎回认证
-
     @CloudReference
     private TransactionService transactionService;
 
