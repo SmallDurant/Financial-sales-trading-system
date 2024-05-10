@@ -136,4 +136,9 @@ public class Result extends HashMap<String, Object>
     {
         return new Result(code, msg, null);
     }
+
+    public static Result state(Boolean flag){
+        if(flag) return Result.success();
+        else return Result.error();
+    }
 }

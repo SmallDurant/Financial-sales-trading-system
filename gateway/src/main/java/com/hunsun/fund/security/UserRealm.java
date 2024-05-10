@@ -1,7 +1,8 @@
 package com.hunsun.fund.security;
 
+import com.auth0.jwt.JWT;
 import com.hundsun.fund.utils.JwtUtil;
-import com.hunsun.fund.threadlocal.ThreadLocalUtil;
+import com.hundsun.fund.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -12,10 +13,12 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.HashSet;
-import java.util.List;
 
 /**
  * @Author
@@ -26,6 +29,10 @@ import java.util.List;
 @Component
 @Slf4j
 public class UserRealm extends AuthorizingRealm {
+
+    @Resource
+    @Lazy
+    private RedisUtil redisUtil;
 
     //private long expireTime;
 
@@ -58,10 +65,10 @@ public class UserRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 
         //设置角色
-        info.setRoles(new HashSet<String>(ThreadLocalUtil.get("roles",List.class)));
+        info.setRoles(new HashSet<>(JWT.decode(token).getClaim("roles").asList(String.class)));
 
         //设置权限
-        info.setStringPermissions(new HashSet<String>(ThreadLocalUtil.get("permissions",List.class)));
+        info.setStringPermissions(new HashSet<>(JWT.decode(token).getClaim("permissions").asList(String.class)));
         //返回权限实例
         return info;
     }
@@ -73,6 +80,7 @@ public class UserRealm extends AuthorizingRealm {
         //获取token
         String token = (String) authenticationToken.getCredentials();
 
+        if (redisUtil.sIsMember("invalidtoken", token)) throw new AuthenticationException("Token无效，请重新登录!");
         //jwt校验
         if (!JwtUtil.verify(token))
             throw new AuthenticationException("Token失效，请重新登录!");

@@ -2,10 +2,13 @@ package com.hundsun.fund.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hundsun.fund.user.user.dto.SysUserInfoDTO;
-import com.hundsun.fund.user.user.entity.SysUser;
-import com.hundsun.fund.user.user.vo.SysUserInfoVO;
+import com.hundsun.fund.user.dto.SysUserInfoDTO;
+import com.hundsun.fund.user.entity.SysUser;
+import com.hundsun.fund.user.vo.SysUserInfoVO;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * @Author
@@ -19,8 +22,13 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
         return selectOne(new QueryWrapper<SysUser>().eq("account", account));
     }
 
-    SysUserInfoVO getInfo(Long userId);
+    SysUserInfoVO getUserInfo(Long userId);
 
-    boolean updateInfo(SysUserInfoDTO sysUserInfoDTO);
+    Boolean updateUserInfo(SysUserInfoDTO userInfoDTO);
 
+    @Select("SELECT transaction_password FROM tuser WHERE tuser.user_id = #{userid}")
+    String getTransactionPassword(Long userid);
+
+    @Insert("INSERT INTO taccount(user_id,card_password) values (#{userId},#{cardPassword})")
+    void insertAccount(@Param("userId") Long userId, @Param("cardPassword") String cardPassword);
 }

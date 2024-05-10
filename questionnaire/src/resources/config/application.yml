@@ -1,0 +1,8 @@
+app:
+  name: questionnaire
+  group: demo
+  server:
+    port: 8084
+
+config:
+  location: classpath:middleware.properties

@@ -1,9 +1,7 @@
 package com.hunsun.fund.security;
 
 
-import com.auth0.jwt.JWT;
 import com.hundsun.fund.exception.ServiceException;
-import com.hunsun.fund.threadlocal.ThreadLocalUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
@@ -36,18 +34,10 @@ public class JwtFilter extends BasicHttpAuthenticationFilter implements Filter {
     protected boolean executeLogin(ServletRequest request, ServletResponse response) throws ServiceException{
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String token = httpServletRequest.getHeader("Authorization");
-        if (token != null){
-            ThreadLocalUtil.set("token", token);
-            ThreadLocalUtil.set("userId", JWT.decode(token).getClaim("userId").as(String.class));
-            ThreadLocalUtil.set("roles",JWT.decode(token).getClaim("roles").asList(String.class));
-            ThreadLocalUtil.set("permissions",JWT.decode(token).getClaim("permissions").asList(String.class));
-        }
-
-
         JwtToken jwtToken = new JwtToken(token);
         // 提交给realm进行登入，如果错误他会抛出异常并被捕获
         try {
-            getSubject(request, response).login(jwtToken);
+            // getSubject(request, response).login(jwtToken);
             // 如果没有抛出异常则代表登入成功，返回true
             return true;
         } catch (AuthenticationException e) {

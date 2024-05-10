@@ -44,6 +44,14 @@ public class ThreadLocalUtil {
         THREAD_LOCAL.set(threadLocalMap);
     }
 
+    public static String getEmployeeId() {
+        return get("employeeId");
+    }
+
+    public static void setEmployeeId(String employeeId) {
+        set("employeeId", employeeId);
+    }
+
     public static void remove() {
         THREAD_LOCAL.remove();
     }

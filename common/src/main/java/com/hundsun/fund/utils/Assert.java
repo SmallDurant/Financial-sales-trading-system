@@ -34,4 +34,10 @@ public class Assert {
             throw new ServiceException(code, message);
         }
     }
+
+    public static void notNull(Object object,int code, String message){
+        if(object != null){
+            throw new ServiceException(code, message);
+        }
+    }
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hundsun.fund.mapper.NavMapper">
+
+    <!-- 创建新的tnav记录 -->
+    <insert id="createNav" parameterType="com.hundsun.fund.fund.dto.NavDTO">
+        INSERT INTO tnav (fund_id, date, nav, cnav)
+        VALUES (#{navDTO.fundId}, #{navDTO.date}, #{navDTO.nav}, #{navDTO.cnav})
+    </insert>
+
+    <!-- 更新已有的tnav记录 -->
+    <update id="updateNav">
+        UPDATE tnav
+        SET nav = #{navDTO.nav},
+        cnav = #{navDTO.cnav}
+        WHERE fund_id = #{fundId} AND date = #{date}
+    </update>
+
+    <!-- 查询所有的nav记录 -->
+    <select id="findAllNavs" resultType="com.hundsun.fund.fund.dto.NavDTO">
+        SELECT id, fund_id, date, nav, cnav
+        FROM tnav
+    </select>
+
+    <!-- 根据ID查询单个tnav记录 -->
+    <select id="findNavById" parameterType="long" resultType="com.hundsun.fund.fund.dto.NavDTO">
+        SELECT id, fund_id, date, nav, cnav
+        FROM tnav
+        WHERE fund_id = #{id}
+    </select>
+
+    <!-- 查找某天的nav记录 -->
+    <select id="findNavByDate" parameterType="java.time.LocalDate" resultType="com.hundsun.fund.fund.dto.NavDTO">
+        SELECT id, fund_id, date, nav, cnav
+        FROM tnav
+        WHERE date = #{date}
+    </select>
+
+
+    <select id="findNavByDateAndID" parameterType="map" resultType="com.hundsun.fund.fund.dto.NavDTO">
+        SELECT id, fund_id, date, nav, cnav
+        FROM tnav
+        WHERE fund_id = #{id} AND date = #{date}
+    </select>
+
+
+</mapper>

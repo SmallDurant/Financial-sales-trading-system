@@ -1,0 +1,8 @@
+app:
+  name: log
+  group: demo
+  server:
+    port: 8086
+
+config:
+  location: classpath:middleware.properties

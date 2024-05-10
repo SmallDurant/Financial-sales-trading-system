@@ -2,7 +2,7 @@ package com.hundsun.fund.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hundsun.fund.user.user.entity.SysPermission;
+import com.hundsun.fund.user.entity.SysPermission;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.ArrayList;

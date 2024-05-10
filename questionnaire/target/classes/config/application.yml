@@ -1,0 +1,8 @@
+app:
+  name: user
+  group: demo
+  server:
+    port: 12225
+
+config:
+  location: classpath:middleware.properties

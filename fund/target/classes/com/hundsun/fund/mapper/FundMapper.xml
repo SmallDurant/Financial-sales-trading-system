@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hundsun.fund.mapper.FundMapper">
+
+    <!-- ResultMap to map the columns to the FundDTO properties -->
+    <resultMap id="fundResultMap" type="com.hundsun.fund.fund.dto.FundDTO">
+        <id column="fund_id" property="fundId"/>
+        <result column="fund_code" property="fundCode"/>
+        <result column="fund_name" property="fundName"/>
+        <result column="fund_administrator" property="fundAdministrator"/>
+        <result column="fund_trustee" property="fundTrustee"/>
+        <result column="fund_issuer" property="fundIssuer"/>
+        <result column="effective_date" property="effectiveDate"/>
+        <result column="fund_type" property="fundType"/>
+        <result column="transaction_currency" property="transactionCurrency"/>
+        <result column="fund_risk" property="fundRisk"/>
+        <result column="fund_status" property="fundStatus"/>
+        <result column="charge_way" property="chargeWay"/>
+        <result column="purchase_rate" property="purchaseRate"/>
+        <result column="redemption_rate" property="redemptionRate"/>
+        <result column="management_fee_rate" property="managementFeeRate"/>
+        <result column="custodian_fee_rate" property="custodianFeeRate"/>
+        <result column="fund_size" property="fundSize"/>
+        <result column="establishment_scale" property="establishmentScale"/>
+        <result column="fund_shares" property="fundShares"/>
+        <result column="min_purchase_amount" property="minPurchaseAmount"/>
+        <result column="nav" property="nav"/>
+        <result column="cnav" property="cnav"/>
+        <result column="investment_philosophy" property="investmentPhilosophy"/>
+        <result column="investment_scope" property="investmentScope"/>
+        <result column="investment_strategy" property="investmentStrategy"/>
+        <result column="operation_mode" property="operationMode"/>
+        <result column="fund_stage" property="fundStage"/>
+        <result column="is_delete" property="isDelete"/>
+    </resultMap>
+
+    <!-- 查所有未删除的基金 -->
+    <select id="findAllFunds" resultMap="fundResultMap">
+        SELECT * FROM tfund WHERE is_delete = 0
+    </select>
+
+    <!-- 查所有包括未删除的基金 -->
+    <select id="findAll" resultMap="fundResultMap">
+        SELECT * FROM tfund
+    </select>
+
+    <!-- 根据fundId查基金 -->
+    <select id="findFundById" parameterType="long" resultMap="fundResultMap">
+        SELECT * FROM tfund WHERE fund_id = #{fundId} AND is_delete = 0
+    </select>
+
+    <!-- 增加新的基金 -->
+    <insert id="createFund" parameterType="com.hundsun.fund.fund.dto.FundDTO" useGeneratedKeys="true" keyProperty="fundId">
+        INSERT INTO tfund (fund_code, fund_name, fund_administrator, fund_trustee, fund_issuer, effective_date, fund_type, transaction_currency, fund_risk, fund_status, charge_way, purchase_rate, redemption_rate, management_fee_rate, custodian_fee_rate, fund_size, establishment_scale, fund_shares, min_purchase_amount, nav, cnav, investment_philosophy, investment_scope, investment_strategy, operation_mode, fund_stage, is_delete)
+        VALUES (#{fundCode}, #{fundName}, #{fundAdministrator}, #{fundTrustee}, #{fundIssuer}, #{effectiveDate}, #{fundType}, #{transactionCurrency}, #{fundRisk}, #{fundStatus}, #{chargeWay}, #{purchaseRate}, #{redemptionRate}, #{managementFeeRate}, #{custodianFeeRate}, #{fundSize}, #{establishmentScale}, #{fundShares}, #{minPurchaseAmount}, #{nav}, #{cnav}, #{investmentPhilosophy}, #{investmentScope}, #{investmentStrategy}, #{operationMode}, #{fundStage}, #{isDelete})
+    </insert>
+
+    <!-- 更新fundId基金  可能有问题-->
+    <update id="updateFund">
+        UPDATE tfund
+        SET fund_code = #{fund.fundCode},
+        fund_name = #{fund.fundName},
+        fund_administrator = #{fund.fundAdministrator},
+        fund_trustee = #{fund.fundTrustee},
+        fund_issuer = #{fund.fundIssuer},
+        effective_date = #{fund.effectiveDate},
+        fund_type = #{fund.fundType},
+        transaction_currency = #{fund.transactionCurrency},
+        fund_risk = #{fund.fundRisk},
+        fund_status = #{fund.fundStatus},
+        charge_way = #{fund.chargeWay},
+        purchase_rate = #{fund.purchaseRate},
+        redemption_rate = #{fund.redemptionRate},
+        management_fee_rate = #{fund.managementFeeRate},
+        custodian_fee_rate = #{fund.custodianFeeRate},
+        fund_size = #{fund.fundSize},
+        establishment_scale = #{fund.establishmentScale},
+        fund_shares = #{fund.fundShares},
+        min_purchase_amount = #{fund.minPurchaseAmount},
+        nav = #{fund.nav},
+        cnav = #{fund.cnav},
+        investment_philosophy = #{fund.investmentPhilosophy},
+        investment_scope = #{fund.investmentScope},
+        investment_strategy = #{fund.investmentStrategy},
+        operation_mode = #{fund.operationMode},
+        fund_stage = #{fund.fundStage},
+        is_delete = #{fund.isDelete}
+        WHERE fund_id = #{fundId}
+    </update>
+
+    <!-- 逻辑删除fundId基金 -->
+    <update id="deleteFund" parameterType="long">
+        UPDATE tfund SET is_delete = 1 WHERE fund_id = #{fundId}
+    </update>
+
+</mapper>

@@ -1,0 +1,8 @@
+app:
+  name: fund
+  group: demo
+  server:
+    port: 8083
+
+config:
+  location: classpath:middleware.properties

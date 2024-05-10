@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hundsun.fund.mapper.ManagerMapper">
+
+    <!-- Result Map -->
+    <resultMap id="managerResultMap" type="com.hundsun.fund.fund.dto.ManagerDTO">
+        <id column="manager_id" property="managerId" jdbcType="BIGINT"/>
+        <result column="manager_name" property="managerName" jdbcType="VARCHAR"/>
+        <result column="introduction" property="introduction" jdbcType="VARCHAR"/>
+        <result column="birthday" property="birthday" jdbcType="DATE"/>
+        <result column="photo" property="photo" jdbcType="VARCHAR"/>
+        <result column="educational_background" property="educationalBackground" jdbcType="TINYINT"/>
+        <result column="is_delete" property="isDelete" jdbcType="BOOLEAN"/>
+    </resultMap>
+
+    <!-- SQL Statement for findManagerById -->
+    <select id="findManagerById" resultMap="managerResultMap">
+        SELECT * FROM tmanager WHERE manager_id = #{managerId} AND is_delete = false
+    </select>
+
+    <!-- SQL Statement for createManager -->
+    <insert id="createManager" useGeneratedKeys="true" keyProperty="managerId">
+        INSERT INTO tmanager (manager_name, introduction, birthday, photo, educational_background, is_delete)
+        VALUES (#{managerDTO.managerName}, #{managerDTO.introduction}, #{managerDTO.birthday}, #{managerDTO.photo}, #{managerDTO.educationalBackground}, false)
+    </insert>
+
+    <!-- SQL Statement for updateManager -->
+    <update id="updateManager">
+        UPDATE tmanager
+        SET
+        manager_name = #{managerDTO.managerName},
+        introduction = #{managerDTO.introduction},
+        birthday = #{managerDTO.birthday},
+        photo = #{managerDTO.photo},
+        educational_background = #{managerDTO.educationalBackground},
+        is_delete = #{managerDTO.isDelete}
+        WHERE manager_id = #{managerId}
+    </update>
+
+    <!-- SQL Statement for deleteManager -->
+    <update id="deleteManager">
+        UPDATE tmanager SET is_delete = true WHERE manager_id = #{managerId}
+    </update>
+
+</mapper>

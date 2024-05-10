@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hundsun.fund.mapper.FundToManagerMapper">
+
+    <resultMap id="fundToManagerResult" type="com.hundsun.fund.fund.dto.FundToManagerDTO">
+        <result property="id" column="id"/>
+        <result property="fundId" column="fund_id"/>
+        <result property="managerId" column="manager_id"/>
+        <result property="appointmentDate" column="appointment_date"/>
+        <result property="performance" column="performance"/>
+        <result property="appointmentAssetSize" column="appointment_asset_size"/>
+        <result property="endDate" column="end_date"/>
+    </resultMap>
+
+    <select id="findByFundId" resultMap="fundToManagerResult">
+        SELECT * FROM tfundtomanager WHERE fund_id = #{fundId}
+    </select>
+
+    <select id="findByManagerId" resultMap="fundToManagerResult">
+        SELECT * FROM tfundtomanager WHERE manager_id = #{managerId}
+    </select>
+
+    <update id="updateFundToManager">
+        UPDATE tfundtomanager
+        SET
+        fund_id = #{fundToManager.fundId},
+        manager_id = #{fundToManager.managerId},
+        appointment_date = #{fundToManager.appointmentDate},
+        performance = #{fundToManager.performance},
+        appointment_asset_size = #{fundToManager.appointmentAssetSize},
+        end_date = #{fundToManager.endDate}
+        WHERE id = #{id}
+    </update>
+
+    <insert id="addFundToManager">
+        INSERT INTO tfundtomanager (fund_id, manager_id, appointment_date, performance, appointment_asset_size)
+        VALUES (#{fundToManager.fundId}, #{fundToManager.managerId}, #{fundToManager.appointmentDate}, #{fundToManager.performance}, #{fundToManager.appointmentAssetSize})
+    </insert>
+
+</mapper>

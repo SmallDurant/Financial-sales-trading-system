@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hundsun.fund.mapper.PortionMapper">
+
+    <resultMap id="PortionMap" type="com.hundsun.fund.fund.dto.FundportionDTO">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="account_id" property="accountId" />
+        <result column="fund_id" property="fundId" />
+        <result column="portion" property="portion" />
+        <result column="frozen_portion" property="frozenPortion" />
+    </resultMap>
+
+    <select id="findPortion" parameterType="long" resultMap="PortionMap">
+        SELECT * FROM tportion WHERE user_id = #{userId}
+    </select>
+
+    <insert id="createPortion">
+        INSERT INTO tportion (user_id, account_id, fund_id, portion, frozen_portion)
+        VALUES (#{userId}, #{accountId}, #{fundId}, #{portion}, 0)
+    </insert>
+
+    <update id="updatePositionPortion">
+        UPDATE tportion
+        SET portion = portion + #{additionalPortion}
+        WHERE user_id = #{userId} AND account_id = #{accountId} AND fund_id = #{fundId}
+    </update>
+
+    <update id="updatePositionFrozenPortion">
+        UPDATE tportion
+        SET frozen_portion = frozen_portion + #{additionalFrozenPortion}
+        WHERE user_id = #{userId} AND account_id = #{accountId} AND fund_id = #{fundId}
+    </update>
+
+    <update id="cutPositionFrozenPortion">
+        UPDATE tportion
+        SET frozen_portion = frozen_portion - #{cutFrozenPortion},portion = portion - #{cutFrozenPortion}
+        WHERE user_id = #{userId} AND account_id = #{accountId} AND fund_id = #{fundId}
+    </update>
+
+    <select id="checkRecordExists" resultType="boolean">
+        SELECT EXISTS (
+        SELECT 1 FROM tportion
+        WHERE user_id = #{userId} AND account_id = #{accountId} AND fund_id = #{fundId}
+        ) AS recordExists
+    </select>
+
+    <select id="isFrozenPortionLessThanPortion" resultType="boolean">
+        SELECT EXISTS (
+        SELECT 1 FROM tportion
+        WHERE user_id = #{userId}
+        AND account_id = #{accountId}
+        AND fund_id = #{fundId}
+        AND  portion > #{additionalFrozenPortion}
+        ) AS recordExists
+    </select>
+
+
+</mapper>

@@ -1,0 +1,8 @@
+app:
+  name: gateway2
+  group: demo
+  server:
+    port: 12228
+
+config:
+  location: classpath:middleware.properties

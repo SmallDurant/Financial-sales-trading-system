@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hundsun.fund.mapper.LogMapper">
+    <!-- 查询管理员操作日志 -->
+    <select id="getLogRecord" resultType="com.hundsun.fund.log.vo.LogRecordVO">
+        SELECT
+        id,
+        employee_id AS employeeId,
+        type,
+        detail,
+        time
+        FROM
+        tlog
+        ORDER BY
+        id DESC
+        LIMIT #{start}, #{size}
+    </select>
+
+    <!-- 新增管理员操作日志 -->
+    <insert id="addLogRecord">
+        INSERT INTO tlog (employee_id, type, detail, time)
+        VALUES (#{employeeId}, #{type}, #{detail}, #{time})
+    </insert>
+
+</mapper>

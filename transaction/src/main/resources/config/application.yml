@@ -1,0 +1,24 @@
+app:
+  name: transaction
+  group: demo
+  server:
+    port: 8085
+  registry:
+    address: 10.131.134.219:2181
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://123.60.152.234:3306/hundsun?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: chl
+    password: 123456
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+config:
+  location: classpath:middleware.properties
